@@ -1,0 +1,127 @@
+@media (min-width: 700px) {
+ .leading {
+    display: flex;
+    align-items: center;
+  }
+}
+
+
+/* Grid styles -------------------------------------------------*/
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-gap: 10px;
+}
+
+
+/* Generic styles ----------------------------------------------*/
+
+.leading {
+  height: 240px;
+  margin-bottom: 30px;
+  padding: 30px;
+  color: white;
+  background: url('') center #333 no-repeat;
+  background-size: cover;
+  color: white;
+  text-shadow: 0px 0px 5px #000;
+}
+
+.leading-bigtext {
+  margin-right: 60px;
+  font-weight: bold;
+  font-size: 24vw;
+}
+
+@media (min-width: 700px) {
+  .leading-bigtext {
+    font-size: 140px;
+  }
+}
+
+.leading-text {
+  max-width: 900px;
+  font-size: 1.2em;
+  line-height: 1.4em;
+}
+
+.cards {
+  max-width: 960px;
+  margin: 0 auto 30px;
+}
+
+article {
+  position: relative;
+  background: rgba(224, 223, 218, 0.6);
+  border-radius: 10px;
+}
+
+.article-img {
+  height: 100px;
+  width: 100%;
+  /*object-fit: cover;*/
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+}
+
+.article-title {
+  position: absolute;
+  top: 60px;
+  right: 0px;
+  color: white;
+  width: 100%;
+  padding: 5px;
+  background: rgba(48, 48, 48, 0.6);
+}
+
+.top-left {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 3px;
+  color: white;
+  height: 40px;
+}
+
+.live {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 7px;
+  color: white;
+  height: 25px;
+  font-weight:bold;
+  font-size: 11px;
+  border-radius: 10px 0px 10px 0px;
+  background-color: #ff6f00;
+}
+.watching{
+  color: #5e6269;
+  font-size: 10px;
+  text-align: left;
+  padding: 5px; 
+}
+
+.carousel-inner img {
+      max-height: 200px;
+      /*object-fit: cover;*/
+      min-height: 200px;
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+.padding1{
+  margin: 0px 20px 0px 20px;
+  border-radius: 20%;
+}
+
+.banner-img{
+    min-height: 220px; 
+    max-height: 220px; 
+    width: auto;
+    display: block;
+    margin-left: auto;
+  margin-right: auto;
+
+}

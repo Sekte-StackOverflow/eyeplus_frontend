@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+  <link href="/vjs/node_modules/video.js/dist/video-js.css" rel="stylesheet">
+  <link href="/vjs/dist/videojs-hls-quality-selector.css" rel="stylesheet">
+
+<style>
+p.small {
+  line-height: 0.1;
+  margin-top: -15px;
+  width:100%;
+}
+p.big {
+  line-height: 1.8;
+}
+
+.header {
+  padding: 0px 0px;
+  background: #555;
+  color: #f1f1f1;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.sticky  {
+  padding-top: 1px;
+}
+
+   
+
+</style>
+</head>
+<body>
+<p class="small">
+
+<!-- HTML -->
+
+<div class="video-responsive">
+<video id="videojs-hls-quality-selector-player" class="video-js vjs-default-skin" width="100%" height="100%" 
+    style="position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit:fill;
+    border:0" controls autoplay muted loop playsinline >
+
+<source type="application/x-mpegURL" src="https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8">
+</video>
+
+
+
+<script src="/vjs/node_modules/video.js/dist/video.js"></script>
+  <script src="/vjs/node_modules/videojs-contrib-quality-levels/dist/videojs-contrib-quality-levels.js"></script>
+  <script src="/vjs/dist/videojs-hls-quality-selector.js"></script>
+   <script>
+    (function(window, videojs) {
+      var player = window.player = videojs('videojs-hls-quality-selector-player');
+      player.hlsQualitySelector({
+          displayCurrentQuality: true,
+      });
+    }(window, window.videojs));
+  </script>
+
+</div>
+
+
+</p>
+
+
+
+</body>
+</html>

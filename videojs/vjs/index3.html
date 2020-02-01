@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>videojs-hls-quality-selector Demo</title>
+  <link href="node_modules/video.js/dist/video-js.css" rel="stylesheet">
+  <link href="dist/videojs-hls-quality-selector.css" rel="stylesheet">
+</head>
+<body>
+  <video id="videojs-hls-quality-selector-player" class="video-js vjs-default-skin" width="640" height="360" controls autoplay>
+    <source src="http://stream.suryaiptv.net/streams/22_.m3u8" type="application/x-mpegURL">
+  </video>
+  <ul>
+    <li><a href="test/">Run unit tests in browser.</a></li>
+    <li><a href="docs/api/">Read generated docs.</a></li>
+  </ul>
+
+  <script src="node_modules/video.js/dist/video.js"></script>
+  <script src="node_modules/videojs-contrib-quality-levels/dist/videojs-contrib-quality-levels.js"></script>
+  <script src="dist/videojs-hls-quality-selector.js"></script>
+  <script>
+    (function(window, videojs) {
+      var player = window.player = videojs('videojs-hls-quality-selector-player');
+      player.hlsQualitySelector({
+          displayCurrentQuality: false,
+      });
+    }(window, window.videojs));
+  </script>
+</body>
+</html>

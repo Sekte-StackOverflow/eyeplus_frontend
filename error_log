@@ -1,0 +1,106 @@
+[26-Jan-2020 09:41:59 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplusvendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 09:41:59 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplusvendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 09:41:59 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '/home/alvaind1/public_html/eyeplusvendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 09:42:01 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplusvendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 09:42:01 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplusvendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 09:42:01 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '/home/alvaind1/public_html/eyeplusvendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 09:42:51 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/../vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 09:42:51 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/../vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 09:42:51 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '/home/alvaind1/public_html/eyeplus/../vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:09:52 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/../vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:09:52 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/../vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:09:52 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '/home/alvaind1/public_html/eyeplus/../vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:09:54 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/../vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:09:54 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/../vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:09:54 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '/home/alvaind1/public_html/eyeplus/../vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:23:05 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/../vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:23:05 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/../vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:23:05 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '/home/alvaind1/public_html/eyeplus/../vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:23:07 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/../vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:23:07 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/../vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:23:07 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '/home/alvaind1/public_html/eyeplus/../vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:24:29 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/public_html/eyeplus/vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:24:29 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/public_html/eyeplus/vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:24:29 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '/home/alvaind1/public_html/eyeplus/public_html/eyeplus/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:24:33 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/public_html/eyeplus/vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:24:33 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/public_html/eyeplus/vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:24:33 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '/home/alvaind1/public_html/eyeplus/public_html/eyeplus/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:26:48 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/public_html/eyeplus/vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:26:48 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/public_html/eyeplus/vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:26:48 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '/home/alvaind1/public_html/eyeplus/public_html/eyeplus/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:26:54 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/public_html/eyeplus/vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:26:54 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/public_html/eyeplus/vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:26:54 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '/home/alvaind1/public_html/eyeplus/public_html/eyeplus/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:27:28 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/public_html/eyeplus/vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:27:28 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/public_html/eyeplus/vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:27:28 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '/home/alvaind1/public_html/eyeplus/public_html/eyeplus/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:27:34 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/public_html/eyeplus/vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:27:34 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/public_html/eyeplus/vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:27:34 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '/home/alvaind1/public_html/eyeplus/public_html/eyeplus/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:27:41 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/public_html/eyeplus/vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:27:41 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/public_html/eyeplus/vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:27:41 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '/home/alvaind1/public_html/eyeplus/public_html/eyeplus/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:28:56 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/../vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:28:56 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/../vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:28:56 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '/home/alvaind1/public_html/eyeplus/../vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:47:37 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus../vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:47:37 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus../vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:47:37 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '/home/alvaind1/public_html/eyeplus../vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:47:42 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus../vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:47:42 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus../vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:47:42 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '/home/alvaind1/public_html/eyeplus../vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:47:51 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus../vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:47:51 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus../vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 10:47:51 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '/home/alvaind1/public_html/eyeplus../vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 11:10:35 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/eyeplus/vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 11:10:35 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/eyeplus/vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 11:10:35 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '/home/alvaind1/public_html/eyeplus/eyeplus/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 11:10:55 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/eyeplus/vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 11:10:55 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplus/eyeplus/vendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 11:10:55 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '/home/alvaind1/public_html/eyeplus/eyeplus/vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 11:11:21 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplusvendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 11:11:21 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplusvendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 11:11:21 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '/home/alvaind1/public_html/eyeplusvendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 11:11:23 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplusvendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 11:11:23 Asia/Jakarta] PHP Warning:  require(/home/alvaind1/public_html/eyeplusvendor/autoload.php): failed to open stream: No such file or directory in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 11:11:23 Asia/Jakarta] PHP Fatal error:  require(): Failed opening required '/home/alvaind1/public_html/eyeplusvendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/alvaind1/public_html/eyeplus/index.php on line 24
+[26-Jan-2020 11:34:49 Asia/Jakarta] PHP Notice:  Undefined variable: app in /home/alvaind1/public_html/eyeplus/index.php on line 25
+[26-Jan-2020 11:34:49 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind() on null in /home/alvaind1/public_html/eyeplus/index.php:25
+Stack trace:
+#0 {main}
+  thrown in /home/alvaind1/public_html/eyeplus/index.php on line 25
+[26-Jan-2020 11:35:07 Asia/Jakarta] PHP Notice:  Undefined variable: app in /home/alvaind1/public_html/eyeplus/index.php on line 25
+[26-Jan-2020 11:35:07 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind() on null in /home/alvaind1/public_html/eyeplus/index.php:25
+Stack trace:
+#0 {main}
+  thrown in /home/alvaind1/public_html/eyeplus/index.php on line 25
+[26-Jan-2020 11:36:17 Asia/Jakarta] PHP Notice:  Undefined variable: app in /home/alvaind1/public_html/eyeplus/index.php on line 25
+[26-Jan-2020 11:36:17 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind() on null in /home/alvaind1/public_html/eyeplus/index.php:25
+Stack trace:
+#0 {main}
+  thrown in /home/alvaind1/public_html/eyeplus/index.php on line 25
+[26-Jan-2020 11:36:17 Asia/Jakarta] PHP Notice:  Undefined variable: app in /home/alvaind1/public_html/eyeplus/index.php on line 25
+[26-Jan-2020 11:36:17 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind() on null in /home/alvaind1/public_html/eyeplus/index.php:25
+Stack trace:
+#0 {main}
+  thrown in /home/alvaind1/public_html/eyeplus/index.php on line 25
+[26-Jan-2020 11:36:25 Asia/Jakarta] PHP Notice:  Undefined variable: app in /home/alvaind1/public_html/eyeplus/index.php on line 25
+[26-Jan-2020 11:36:25 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind() on null in /home/alvaind1/public_html/eyeplus/index.php:25
+Stack trace:
+#0 {main}
+  thrown in /home/alvaind1/public_html/eyeplus/index.php on line 25
+[26-Jan-2020 11:37:06 Asia/Jakarta] PHP Notice:  Undefined variable: app in /home/alvaind1/public_html/eyeplus/index.php on line 25
+[26-Jan-2020 11:37:06 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind() on null in /home/alvaind1/public_html/eyeplus/index.php:25
+Stack trace:
+#0 {main}
+  thrown in /home/alvaind1/public_html/eyeplus/index.php on line 25
+[26-Jan-2020 11:46:46 Asia/Jakarta] PHP Notice:  Undefined variable: app in /home/alvaind1/public_html/eyeplus/index.php on line 26
+[26-Jan-2020 11:46:46 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind() on null in /home/alvaind1/public_html/eyeplus/index.php:26
+Stack trace:
+#0 {main}
+  thrown in /home/alvaind1/public_html/eyeplus/index.php on line 26
+[26-Jan-2020 11:47:33 Asia/Jakarta] PHP Notice:  Undefined variable: app in /home/alvaind1/public_html/eyeplus/index.php on line 23
+[26-Jan-2020 11:47:33 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to a member function bind() on null in /home/alvaind1/public_html/eyeplus/index.php:23
+Stack trace:
+#0 {main}
+  thrown in /home/alvaind1/public_html/eyeplus/index.php on line 23
