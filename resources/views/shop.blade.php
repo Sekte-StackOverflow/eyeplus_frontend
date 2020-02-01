@@ -1,10 +1,7 @@
-
 @extends('master')
-
-
 @section('heading')
   <!-- <img src="https://mmc.tirto.id/image/otf/500x0/2018/12/10/shopee-blackpink-_ratio-16x9.jpg" style="width:100%"  alt="Image" class="img-rounded"> -->
-    <div class="row " >
+   <div class="row " >
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         @for ($i = 0 ; $i <= $total ; $i++)
@@ -15,11 +12,11 @@
       <!-- Wrapper for slides -->
       <div class="carousel-inner img-center " role="listbox">
         <div class="item active">
-          <img src="{{ URL::to('/image/16x9.jpg') }}" alt="Image" class="banner padding-img"> 
+          <img src="{{ URL::to('/image/16x9.jpg') }}" alt="Image"> 
         </div>
         @for ($i = 0 ; $i <= $total-1; $i++)
         <div class="item" >
-          <img src="https://upload.wikimedia.org/wikipedia/id/8/84/SpiderManFarFromHomeTheatrical.jpg" alt="Image" class="banner padding-img">     
+          <img src="https://upload.wikimedia.org/wikipedia/id/8/84/SpiderManFarFromHomeTheatrical.jpg" alt="Image">     
         </div>
         @endfor
       </div>
@@ -43,6 +40,8 @@
       <section class="cards text-center">
         @for ($i = 0 ; $i <= 9; $i++)
         <article>
+          <font class="harga-asli1"><s> Rp 1.500.000 </s><font class="diskon1"><b>40 %</b> OFF </font></font>
+          <font class="harga1">RP 1.280.000</font>
           <a href="shopping/barang"><img class="shop-img" src="http://placekitten.com/305/205" alt=" " /></a>
           <button type="button" class="shop-button" data-toggle="modal" data-target="#myModal">BELI</button>
         </article>
@@ -51,17 +50,14 @@
     </main>
 
 <div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog modal-sm">
+  <div class="modal-dialog modal-sm" style="top: 20%">
     <!-- Modal content-->
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
-      </div>
       <div class="modal-body">
-        <img class="barang-img" src="http://2.bp.blogspot.com/-SyRADliKjSg/Vkl6ONOZ-SI/AAAAAAAAA5k/2KTUTs8nZ_I/s1600/diskon-10.jpg" alt=" " style="height: auto" />
+        <span type="button" class="close" data-dismiss="modal">&times;</span>
+        <img class="barang-img" src="http://placekitten.com/305/205" alt=" " style="height: 300px;" />
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer" hidden="div">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
@@ -71,16 +67,25 @@
 
 
 <style type="text/css">
-@media screen and (max-width: 601px) {
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  grid-gap: 10px;
+@media screen and (max-width: 600px) {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-gap: 10px;
+  }
+  .carousel-inner img {
+      max-height: 200px;
+      min-height: 200px;
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
 }
+
+@media screen and (min-width: 600px){
 .carousel-inner img {
-      max-height: 100px;
-      /*object-fit: cover;*/
-      min-height: 100px;
+      max-height: 400px;
+      min-height: 400px;
       width: 100%;
       padding-left: 20px;
       padding-right: 20px;
@@ -89,11 +94,35 @@
 
 .padding{
   margin: 0px 20px 0px 20px;
-  border-radius: 10%;
 }
 
-.padding-img{
-  border-radius: 10%;
+.harga1{
+  position: absolute;
+  bottom: 60px;
+  left: 10px;
+  padding: 2px;
+  color: white;
+  font-weight:bold;
+  font-size: 10px;
+  background-color: #ff6f00;
+}
+
+.harga-asli1{
+  position: absolute;
+  bottom: 78px;
+  left: 10px;
+  padding: 0px 0px 0px 5px;
+  color: white;
+  font-size: 8px;
+  background-color:#8a8884;
+}
+
+.diskon1{
+  padding: 2px;
+  color: white;
+  font-size: 8px;
+  padding: 2px 9px 2px 9px;
+  background-color:#333333;
 }
 </style>
 @endsection

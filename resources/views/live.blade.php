@@ -43,11 +43,11 @@
       <!-- Wrapper for slides -->
       <div class="carousel-inner img-center " role="listbox">
         <div class="item active">
-          <img src="{{ URL::to('/image/16x9.jpg') }}" alt="Image" class=" padding-img"> 
+          <img src="{{ URL::to('/image/16x9.jpg') }}" alt="Image"> 
         </div>
         @for ($i = 0 ; $i <= $total-1; $i++)
         <div class="item" >
-          <img src="https://upload.wikimedia.org/wikipedia/id/8/84/SpiderManFarFromHomeTheatrical.jpg" alt="Image" class=" padding-img">     
+          <img src="https://upload.wikimedia.org/wikipedia/id/8/84/SpiderManFarFromHomeTheatrical.jpg" alt="Image">     
         </div>
         @endfor
       </div>
@@ -105,11 +105,6 @@
 
 .padding{
   margin: 0px 20px 0px 20px;
-  border-radius: 10%;
-}
-
-.padding-img{
-  border-radius: 10%;
 }
 </style>
 @endsection
