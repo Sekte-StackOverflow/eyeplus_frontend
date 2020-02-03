@@ -46,25 +46,27 @@
 
 
 <div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog modal-sm" style="top: 20%;">
+  <div class="modal-dialog modal-sm" >
     <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-body">
+    <div class="modal-content" style="background-color: #ebebeb">
+      <div class="modal-header">
+        <font size="4px"><b>Syarat dan Ketentuan</b></font>
         <span type="button" class="close" data-dismiss="modal">&times;</span>
+      </div>
+      <div class="modal-body">
         <textarea id="ex3">
-          Pak Herman memiliki 8 batang pohon durian. Setiap pohon menghasilkan 45 buah durian. Durian tersebut dijual dengan harga Rp25.000 tiap buahnya. Jika durian itu habis terjual, berapa uang yang diterima pak Herman dari penjualan durian tersebut?
+          Situs web (bahasa Inggris: website) adalah sekumpulan halaman web yang saling berhubungan yang umumnya berada pada peladen yang sama berisikan kumpulan informasi yang disediakan secara perorangan, kelompok, atau organisasi.[1] Sebuah situs web biasanya ditempatkan setidaknya pada sebuah server web yang dapat diakses melalui jaringan seperti Internet, ataupun jaringan area lokal (LAN) melalui alamat Internet yang dikenali sebagai URL. Gabungan atas semua situs yang dapat diakses publik di Internet disebut pula sebagai World Wide Web atau lebih dikenal dengan singkatan WWW. Meskipun setidaknya halaman beranda situs Internet umumnya dapat diakses publik secara bebas, pada praktiknya tidak semua situs memberikan kebebasan bagi publik untuk mengaksesnya, beberapa situs web mewajibkan pengunjung untuk melakukan pendaftaran sebagai anggota, atau bahkan meminta pembayaran untuk dapat menjadi aggota untuk dapat mengakses isi yang terdapat dalam situs web tersebut, misalnya situs-situs yang menampilkan pornografi, situs-situs berita, layanan surel (e-mail), dan lain-lain. Pembatasan-pembatasan ini umumnya dilakukan karena alasan keamanan, menghormati privasi, atau karena tujuan komersial tertentu.
 
-Penyelesaian
+          Sebuah halaman web merupakan berkas yang ditulis sebagai berkas teks biasa (plain text) yang diatur dan dikombinasikan sedemikian rupa dengan instruksi-instruksi berbasis HTML atau XHTML, kadang-kadang pula disisipi dengan sekelumit bahasa skrip. Berkas tersebut kemudian diterjemahkan oleh peramban web dan ditampilkan seperti layaknya sebuah halaman pada monitor komputer.
 
-Banyak pohon = 8 pohon
 
-Banyak durian tiap pohon = 45
+          Halaman-halaman web tersebut diakses oleh pengguna melalui protokol komunikasi jaringan yang disebut sebagai HTTP, sebagai tambahan untuk meningkatkan aspek keamanan dan aspek privasi yang lebih baik, situs web dapat pula mengimplementasikan mekanisme pengaksesan melalui protokol HTTPS.
 
-Harga per buah durian = Rp25.000
+          Penemu situs web adalah Sir Timothy John "Tim" Berners-Lee, sedangkan situs web yang tersambung dengan jaringan pertamakali muncul pada tahun 1991. Maksud dari Tim ketika merancang situs web adalah untuk memudahkan tukar menukar dan memperbarui informasi pada sesama peneliti di tempat ia bekerja. Pada tanggal 30 April 1993, CERN (tempat di mana Tim bekerja) mengumumkan bahwa WWW dapat digunakan secara gratis oleh publik.
 
-Sehingga, banyak buah durian 8 pohon = 8 x 45 = 360 dan karena durian terjual semua dengan harga tiap buah Rp25.000 maka
+          Sebuah situs web bisa berupa hasil kerja dari perorangan atau individu, atau menunjukkan kepemilikan dari suatu organisasi, perusahaan. biasanya pembahasan dalam sebuah situs web merujuk pada sebuah ataupun beberapa topik khusus, atau kepentingan tertentu. Sebuah situs web bisa berisi pranala yang menghubungkan ke situs web lain, demikian pula dengan situs web lainnya. Hal ini terkadang membuat perbedaan antara situs web yang dibuat oleh individu ataupun perseorangan dengan situs web yang dibuat oleh organisasi bisnis menjadi tidak begitu jelas.
 
-Uang yang diterima Pak Herman adalah 360 x Rp25.000 = Rp9.000.000
+          Situs web biasanya ditempatkan pada server web. Sebuah server web umumnya telah dilengkapi dengan perangkat-perangkat lunak khusus untuk menangani pengaturan nama ranah, serta menangani layanan atas protokol HTTP yang disebut sebagai Server HTTP (bahasa Inggris: HTTP Server) seperti Apache HTTP Server, atau Internet Information Services (IIS).
         </textarea>
       </div>
       <div class="modal-footer" hidden="div">
@@ -112,13 +114,30 @@ background-color: #636363;
 border:1px solid #333333;
 } 
 
-    textarea
-    {
+  textarea{
+    text-align: justify;
     resize: none;
     overflow-y: scroll;
     height:270px;
     width: 100%;
+    background-color: #f5f5f5;
+  }
+
+  .modal-sm{
+    top: 15%; width: 700px
+  }
+
+  @media screen and (max-width: 600px){
+    .modal-sm{
+      top: 15%; width: 300px;
+      margin-left: auto;
+      margin-right: auto;
     }
+    textarea{
+      height:300px;
+      width: 100%;
+    }
+  }
   </style>
 
 @endsection

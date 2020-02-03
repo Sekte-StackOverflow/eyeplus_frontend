@@ -76,7 +76,7 @@
       <section class="cards">
 <!--         @foreach($live as $l)
         <article>
-          <a href="/live/streaming/{{$l->id}}">
+          <a href="live/{{$l->id}}">
             <img class="article-img" src="{{ $l->poster }}" alt=" " />
             <h4 class="article-title">
               {{ $l->title}}
@@ -88,7 +88,7 @@
         @endforeach -->
       @for ($i = 0 ; $i <= 8; $i++)
         <article>
-          <a href="/live/streaming/{{$i}}">
+          <a href="live/{{$i}}">
             <img class="article-img" src="https://assets-a1.kompasiana.com/items/album/2019/09/02/metro-tv-indonesia-logo-5d6d1a690d823061a66bf102.jpg" alt=" " />
             <h4 class="article-title">
               Metro

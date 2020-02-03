@@ -50,12 +50,12 @@
     </main>
 
 <div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog modal-sm" style="top: 20%">
+  <div class="modal-dialog modal-sm" style=" ">
     <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-body">
-        <span type="button" class="close" data-dismiss="modal">&times;</span>
-        <img class="barang-img" src="http://placekitten.com/305/205" alt=" " style="height: 300px;" />
+    <div class="modal-content" style="background-color: transparent;">
+      <div class="modal-body" >
+        <span type="button" class="close" data-dismiss="modal" style="color: yellow">&times;</span>
+        <img class="barang-img" src="{{ asset('image/banner/popup1.png') }}" alt=" "/>
       </div>
       <div class="modal-footer" hidden="div">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -80,6 +80,15 @@
       padding-left: 20px;
       padding-right: 20px;
     }
+  .modal-sm{
+    margin-top: 27%;
+    max-width: 240px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .barang-img{
+    height: 200px;
+  }
 }
 
 @media screen and (min-width: 600px){
@@ -90,7 +99,14 @@
       padding-left: 20px;
       padding-right: 20px;
     }
+  .barang-img{
+    height: 400px;
+  }
 }
+
+.modal-sm{
+    top: 10%; width: 450px;
+  }
 
 .padding{
   margin: 0px 20px 0px 20px;
@@ -98,30 +114,29 @@
 
 .harga1{
   position: absolute;
-  bottom: 60px;
+  bottom: 59.2px;
   left: 10px;
   padding: 2px;
   color: white;
   font-weight:bold;
-  font-size: 10px;
+  font-size: 12px;
   background-color: #ff6f00;
 }
 
 .harga-asli1{
   position: absolute;
-  bottom: 78px;
+  bottom: 80px;
   left: 10px;
-  padding: 0px 0px 0px 5px;
+  padding: 0px 0px 0px 2px;
   color: white;
-  font-size: 8px;
+  font-size: 10px;
   background-color:#8a8884;
 }
 
 .diskon1{
-  padding: 2px;
   color: white;
-  font-size: 8px;
-  padding: 2px 9px 2px 9px;
+  font-size: 10px;
+  padding: 1.2px 1px 1.6px 1px;
   background-color:#333333;
 }
 </style>

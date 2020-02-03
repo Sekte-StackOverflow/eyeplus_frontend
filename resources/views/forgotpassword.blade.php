@@ -63,28 +63,24 @@
     <form action="/examples/actions/confirmation.php" method="post">
         <h4 class="text-center">You forgot your password? Here you can easily retrieve a new password.</h4>   
         <div class="form-group">
-
-
             <div class="inner-addon right-addon">
                 <i class="glyphicon glyphicon-envelope"></i>
                 <input type="text" class="form-control input" placeholder="Email / Phone" name="email"  required="required" />
             </div>
-
         </div>
-    <div class="form-group" style="height: 0px; margin: 0px">
+        <div class="form-group" style="height: 0px; margin: 0px">
             <div class="input-group">
                 <div class="input-group-addon" style="background-color: transparent; border: none;"></div>    
             </div>
         </div>        
         <div class="form-group" >
-            <button type="submit" class="btn btn-primary login-btn btn-block" >Sign in</button>
+            <button type="submit" class="btn btn-primary login-btn btn-block" >Request New Password</button>
         </div>
         <div class="clearfix">
             <a href="/eyeplus/auth/login" class="pull-left">Login</a><br>
             <a href="/eyeplus/auth/register" class="pull-left">Register</a>
         </div>
     </form>
-
     </div>
     <div class="col-sm-4"></div>
   </div>

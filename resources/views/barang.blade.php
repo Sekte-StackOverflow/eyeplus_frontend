@@ -34,7 +34,7 @@
         	</div> 
         </article>
         <article>
-          <img class="barang-img" src="http://2.bp.blogspot.com/-SyRADliKjSg/Vkl6ONOZ-SI/AAAAAAAAA5k/2KTUTs8nZ_I/s1600/diskon-10.jpg" alt=" " />
+          <img class="barang-img" src="{{ asset('image/banner/popup1.png') }}" alt=" " />
         </article>
     </section>
 </main><br>

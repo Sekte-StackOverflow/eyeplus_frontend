@@ -60,24 +60,22 @@
   <div class="row">
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
-    <form action="/examples/actions/confirmation.php" method="post">
+    <form action="{{ route('login')}}" method="post">
+        {{ csrf_field() }}
         <h2 class="text-center">Sign in</h2>   
         <div class="form-group">
 
-
-            <div class="inner-addon right-addon">
-                <i class="glyphicon glyphicon-envelope"></i>
-                <input type="text" class="form-control input" placeholder="Email / Phone" name="email"  required="required" />
-            </div><br>
-
-            <div class="inner-addon right-addon">
-                <i class="glyphicon glyphicon-lock"></i>
-                <input type="password" class="form-control input" placeholder="Password" name="password" required="required" />
-            </div>
-
+        <div class="inner-addon right-addon">
+            <i class="glyphicon glyphicon-envelope"></i>
+            <input type="text" class="form-control input" placeholder="Email / Phone" name="email"  required="required" />
+        </div><br>
+        <div class="inner-addon right-addon">
+            <i class="glyphicon glyphicon-lock"></i>
+            <input type="password" class="form-control input" placeholder="Password" name="password" required="required" />
+        </div>
 
         </div>
-    <div class="form-group" style="height: 0px">
+        <div class="form-group" style="height: 0px">
             <div class="input-group">
                 <div class="input-group-addon" style="background-color: transparent; border: none;"></div>    
             </div>
@@ -91,7 +89,6 @@
         </div>
     </form>
     <p class="text-center small">Don't have an account? <a href="/eyeplus/auth/register">Sign up here!</a></p>
-
     </div>
     <div class="col-sm-4"></div>
   </div>

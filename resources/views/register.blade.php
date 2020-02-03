@@ -11,6 +11,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 <style type="text/css">
+    .text-danger{
+        font-size: 12px;
+        font-weight: bold;
+    }
   .login-form {
     margin: 30px auto;
       position: absolute;
@@ -60,28 +64,49 @@
   <div class="row">
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
-    <form action="/examples/actions/confirmation.php" method="post">
+    <form action="{{ route('register')}}" method="post">
+        {{ csrf_field() }}
         <h2 class="text-center">Register</h2>   
         <div class="form-group">
 
             <div class="inner-addon right-addon">
                 <i class="glyphicon glyphicon-user"></i>
-                <input type="text" class="form-control input" placeholder="Full Name" name="fullname"  required="required" />
+                <input type="text" class="form-control  {{ $errors->has('name') ? 'is-invalid' : ''}}" placeholder="Full Name" name="name" value="{{ old('name') }}" autofocus />
+                @if($errors->has('name'))
+                    <div class="invalid-feedback text-danger">
+                        {{ $errors->first('name')}}
+                    </div>
+                @endif
             </div><br>
 
             <div class="inner-addon right-addon">
                 <i class="glyphicon glyphicon-envelope"></i>
-                <input type="text" class="form-control input" placeholder="Email / Phone" name="email"  required="required" />
+                <input type="text" class="form-control  {{$errors->has('email') ? 'is-invalid' : ''}}" placeholder="Email / Phone" name="email"  value="{{ old('email') }}"/>
+                @if($errors->has('email'))
+                    <div class="invalid-feedback text-danger">
+                        {{ $errors->first('email')}}
+                    </div>
+                @endif
             </div><br>
 
             <div class="inner-addon right-addon">
                 <i class="glyphicon glyphicon-lock"></i>
-                <input type="password" class="form-control input" placeholder="Password" name="password" required="required" />
+                <input type="password" class="form-control {{$errors->has('password') ? 'is-invalid' : ''}}"" placeholder="Password" name="password" />
+                @if($errors->has('password'))
+                    <div class="invalid-feedback text-danger">
+                        {{ $errors->first('password')}}
+                    </div>
+                @endif
             </div><br>
 
             <div class="inner-addon right-addon">
                 <i class="glyphicon glyphicon-lock"></i>
-                <input type="password" class="form-control input" placeholder="Password" name="password2" required="required" />
+                <input type="password" class="form-control {{$errors->has('password_confirmation') ? 'is-invalid' : ''}}"" placeholder="Password" name="password_confirmation" />
+                @if($errors->has('password_confirmation'))
+                    <div class="invalid-feedback text-danger">
+                        {{ $errors->first('password_confirmation')}}
+                    </div>
+                @endif
             </div>
 
 
@@ -90,12 +115,9 @@
             <div class="input-group">
                 <div class="input-group-addon" style="background-color: transparent; border: none;"></div>    
             </div>
-        </div>
-        <div class="clearfix">
-            <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
-        </div>        
+        </div>      
         <div class="form-group" >
-            <button type="submit" class="btn btn-primary login-btn btn-block" >Sign in</button>
+            <button type="submit" class="btn btn-primary login-btn btn-block" >Register</button>
         </div>
     </form>
     <p class="text-center small">i already have an account <a href="/eyeplus/auth/login">Sign in here!</a></p>

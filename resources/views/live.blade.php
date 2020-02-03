@@ -43,13 +43,20 @@
       <!-- Wrapper for slides -->
       <div class="carousel-inner img-center " role="listbox">
         <div class="item active">
-          <img src="{{ URL::to('/image/16x9.jpg') }}" alt="Image"> 
+          <img src="{{ asset('image/banner/1.jpg') }}" alt="Image"> 
         </div>
-        @for ($i = 0 ; $i <= $total-1; $i++)
+        <div class="item ">
+          <img src="{{ asset('image/banner/2.jpg') }}" alt="Image"> 
+        </div>
+        <div class="item ">
+          <img src="{{ asset('image/banner/3.jpg') }}" alt="Image"> 
+        </div>
+
+        <!-- @for ($i = 0 ; $i <= $total-1; $i++)
         <div class="item" >
-          <img src="https://upload.wikimedia.org/wikipedia/id/8/84/SpiderManFarFromHomeTheatrical.jpg" alt="Image">     
+          <img src="{{ asset('image/baner/4.jpg') }}" alt="Image">     
         </div>
-        @endfor
+        @endfor -->
       </div>
 
       <!-- Left and right controls -->
@@ -71,14 +78,15 @@
       <section class="cards">
         @for ($i = 0 ; $i <= 8; $i++)
         <article>
-          <!-- <a href="/live/streaming/{{$i}}"> -->
+          <!-- <a href="live/{{$i}}"> -->
+          <a href="live/{{ $i }}">
             <img class="article-img" src="https://assets-a1.kompasiana.com/items/album/2019/09/02/metro-tv-indonesia-logo-5d6d1a690d823061a66bf102.jpg" alt=" " />
             <h4 class="article-title">
               Metro
             </h4>
             <div class="watching">100 menonton</div>
             <font class="live">Live</font>
-          <!-- </a> -->
+          </a>
         </article>
         @endfor
       </section>
