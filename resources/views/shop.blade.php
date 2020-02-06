@@ -12,11 +12,11 @@
       <!-- Wrapper for slides -->
       <div class="carousel-inner img-center " role="listbox">
         <div class="item active">
-          <img src="{{ URL::to('/image/16x9.jpg') }}" alt="Image"> 
+          <img src="https://dxclnrbvyw82b.cloudfront.net/images/di/upload/20191016/1f1822eb-1ca4-4502-a57b-333683d38961/88/billbord-page-ec-tv-home-shopping-best-seller.jpg" alt="Image"> 
         </div>
         @for ($i = 0 ; $i <= $total-1; $i++)
         <div class="item" >
-          <img src="https://upload.wikimedia.org/wikipedia/id/8/84/SpiderManFarFromHomeTheatrical.jpg" alt="Image">     
+          <img src="https://dxclnrbvyw82b.cloudfront.net/images/di/upload/20191016/1f1822eb-1ca4-4502-a57b-333683d38961/88/billbord-page-ec-tv-home-shopping-best-seller.jpg" alt="Image">     
         </div>
         @endfor
       </div>
@@ -38,14 +38,42 @@
 @section('konten')
     <main>
       <section class="cards text-center">
-        @for ($i = 0 ; $i <= 9; $i++)
+        @foreach($array['product'] as $key => $product)
         <article>
-          <font class="harga-asli1"><s> Rp 1.500.000 </s><font class="diskon1"><b>40 %</b> OFF </font></font>
-          <font class="harga1">RP 1.280.000</font>
-          <a href="shopping/barang"><img class="shop-img" src="http://placekitten.com/305/205" alt=" " /></a>
+          <font class="harga-asli1"><s> @currency($array['hargaasli'][$key]) </s><font class="diskon1"><b>{{ $array['diskon'][$key] }}</b> OFF </font></font>
+          <font class="harga1"> @currency($array['harga'][$key])</font>
+          <a href="shopping/{{ $array['id'][$key] }}"><img class="shop-img" src="{{ asset('image/Product/' .$product ) }}" alt=" " /></a>
           <button type="button" class="shop-button" data-toggle="modal" data-target="#myModal">BELI</button>
         </article>
-        @endfor
+        @endforeach
+        <!-- <article>
+          <font class="harga-asli1"><s> Rp 1.200.000 </s><font class="diskon1"><b>40 %</b> OFF </font></font>
+          <font class="harga1">RP 1.200.000</font>
+          <a href="shopping/barang"><img class="shop-img" src="{{ asset('image/Product/Kasur-web.png' ) }}" alt=" " /></a>
+          <button type="button" class="shop-button" data-toggle="modal" data-target="#myModal">BELI</button>
+        </article>
+
+        <article>
+          <font class="harga-asli1"><s> Rp 800.000 </s><font class="diskon1"><b>40 %</b> OFF </font></font>
+          <font class="harga1">RP 500.000</font>
+          <a href="shopping/barang"><img class="shop-img" src="{{ asset('image/Product/thumbnail.jpg' ) }}" alt=" " /></a>
+          <button type="button" class="shop-button" data-toggle="modal" data-target="#myModal">BELI</button>
+        </article>
+
+        <article>
+          <font class="harga-asli1"><s> Rp 1.800.000 </s><font class="diskon1"><b>40 %</b> OFF </font></font>
+          <font class="harga1"> RP 1.900.000</font>
+          <a href="shopping/barang"><img class="shop-img" src="{{ asset('image/Product/thumbnail1.jpg' ) }}" alt=" " /></a>
+          <button type="button" class="shop-button" data-toggle="modal" data-target="#myModal">BELI</button>
+        </article>
+
+        <article>
+          <font class="harga-asli1"><s> Rp 1.600.000 </s><font class="diskon1"><b>40 %</b> OFF </font></font>
+          <font class="harga1"> RP 1.200.000</font>
+          <a href="shopping/barang"><img class="shop-img" src="{{ asset('image/Product/colocasia.png' ) }}" alt=" " /></a>
+          <button type="button" class="shop-button" data-toggle="modal" data-target="#myModal">BELI</button>
+        </article> -->
+
       </section>
     </main>
 

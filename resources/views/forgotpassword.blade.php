@@ -77,8 +77,8 @@
             <button type="submit" class="btn btn-primary login-btn btn-block" >Request New Password</button>
         </div>
         <div class="clearfix">
-            <a href="/eyeplus/auth/login" class="pull-left">Login</a><br>
-            <a href="/eyeplus/auth/register" class="pull-left">Register</a>
+            <a href="/eyeplus/login" class="pull-left">Login</a><br>
+            <a href="/eyeplus/register" class="pull-left">Register</a>
         </div>
     </form>
     </div>

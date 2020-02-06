@@ -66,10 +66,10 @@
     <div class="col-sm-4">
     <form action="{{ route('register')}}" method="post">
         {{ csrf_field() }}
-        <h2 class="text-center">Register</h2>   
+        <h2 class="text-center">Sign Up</h2>   
         <div class="form-group">
 
-            <div class="inner-addon right-addon">
+<!--             <div class="inner-addon right-addon">
                 <i class="glyphicon glyphicon-user"></i>
                 <input type="text" class="form-control  {{ $errors->has('name') ? 'is-invalid' : ''}}" placeholder="Full Name" name="name" value="{{ old('name') }}" autofocus />
                 @if($errors->has('name'))
@@ -77,7 +77,7 @@
                         {{ $errors->first('name')}}
                     </div>
                 @endif
-            </div><br>
+            </div><br> -->
 
             <div class="inner-addon right-addon">
                 <i class="glyphicon glyphicon-envelope"></i>
@@ -101,7 +101,7 @@
 
             <div class="inner-addon right-addon">
                 <i class="glyphicon glyphicon-lock"></i>
-                <input type="password" class="form-control {{$errors->has('password_confirmation') ? 'is-invalid' : ''}}"" placeholder="Password" name="password_confirmation" />
+                <input type="password" class="form-control {{$errors->has('password_confirmation') ? 'is-invalid' : ''}}"" placeholder="Password Confirmation" name="password_confirmation" />
                 @if($errors->has('password_confirmation'))
                     <div class="invalid-feedback text-danger">
                         {{ $errors->first('password_confirmation')}}
@@ -117,10 +117,10 @@
             </div>
         </div>      
         <div class="form-group" >
-            <button type="submit" class="btn btn-primary login-btn btn-block" >Register</button>
+            <button type="submit" class="btn btn-primary login-btn btn-block" >Submit</button>
         </div>
     </form>
-    <p class="text-center small">i already have an account <a href="/eyeplus/auth/login">Sign in here!</a></p>
+    <p class="text-center small">i already have an account <a href="/eyeplus/login">Sign in here!</a></p>
 
     </div>
     <div class="col-sm-4"></div>

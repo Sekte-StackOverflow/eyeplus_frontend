@@ -3,31 +3,8 @@
 @section('heading')
 <div class="video-responsive">
   <div class="embed-responsive embed-responsive-16by9">
-    <video id="videojs-hls-quality-selector-player" class="video-js vjs-default-skin embed-responsive-item " poster="http://vjs.zencdn.net/v/oceans.png" 
-    style="position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit:fill;
-    border:0" controls autoplay loop playsinline >
-
-<source type="application/x-mpegURL" src="https://stream.suryaiptv.net/streams/22_.m3u8">
+  <img src="{{ asset('image/banner/images.jpg' ) }}" class="img-responsive">
   </div>
-
-
-<script type="text/javascript" src="{{URL::asset('videojs/vjs/node_modules/video.js/dist/video.js')}}"></script>
-  <script type="text/javascript" src="{{URL::asset('videojs/vjs/node_modules/videojs-contrib-quality-levels/dist/videojs-contrib-quality-levels.js')}}"></script>
-  <script type="text/javascript" src="{{URL::asset('videojs/vjs/dist/videojs-hls-quality-selector.js')}}"></script>
-   <script>
-    (function(window, videojs) {
-      var player = window.player = videojs('videojs-hls-quality-selector-player');
-      player.hlsQualitySelector({
-          displayCurrentQuality: true,
-      });
-    }(window, window.videojs));
-  </script>
-
 </div>
 @endsection
 
@@ -76,19 +53,19 @@
 @section('konten')
 <main>
       <section class="cards">
-        @for ($i = 0 ; $i <= 8; $i++)
+
+        @foreach($array['id'] as $key => $id)
         <article>
           <!-- <a href="live/{{$i}}"> -->
-          <a href="live/{{ $i }}">
-            <img class="article-img" src="https://assets-a1.kompasiana.com/items/album/2019/09/02/metro-tv-indonesia-logo-5d6d1a690d823061a66bf102.jpg" alt=" " />
-            <h4 class="article-title">
-              Metro
-            </h4>
-            <div class="watching">100 menonton</div>
-            <font class="live">Live</font>
+          <a href="live/{{ $id }}">
+            <img class="article-img" src="{{ asset('image/Live Video/'.$array['poster'][$key] ) }}" alt=" " />
+            <h4 class="article-title">{{$array['name'][$key]}}</h4>
+            <div class="watching">1000 menonton</div>
+            <font class="live">LIVE
+            </font>
           </a>
         </article>
-        @endfor
+        @endforeach
       </section>
     </main>
 
@@ -113,6 +90,17 @@
 
 .padding{
   margin: 0px 20px 0px 20px;
+}
+.article-title {
+  position: absolute;
+  top: 67.5px;
+  right: 0px;
+  color: white;
+  width: 100%;
+  padding: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  background: rgba(48, 48, 48, 0.6);
 }
 </style>
 @endsection

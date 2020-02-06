@@ -3,10 +3,11 @@
 @section('heading')
   <link rel="stylesheet" type="text/css" href="{{asset('css/modal.css')}}">
 
+<form action="/eyeplus/register" method="post">
   <h3><b>Daftar</b></h3>
   <div class="input-group">
-    <span class="input-group-addon" id="basic-addon1">ID +62</span>
-    <input type="text" class="form-control" placeholder="Masukkan nomer ponsel" aria-describedby="basic-addon1">
+    <span class="input-group-addon">ID +62</span>
+    <input type="number" class="form-control" placeholder="Masukkan nomer ponsel" id="phone" onkeyup="s()">
   </div><br>
 
   <div class="row">
@@ -21,7 +22,7 @@
     </div>
   </div><br>
   <div>
-    <a type="button" class="btn btn-block info-button"  href="/eyeplus/auth/register">Berikutnya</a>
+    <input type="submit" value="Berikutnya" class="btn btn-block info-button" id="berikutnya" disabled>
   </div><br>    
 
   <h3><b>Atau daftar menggunakan</b></h3>
@@ -29,20 +30,42 @@
     <div class="col-sm-12">
       <div class="inner-addon right-addon">
         <i class="glyphicon glyphicon-envelope"></i>
-        <input type="email" class="form-control input" placeholder="Email" />
+        <input class="form-control input" placeholder="Email" id="email" disabled />
       </div>
     </div>
-    <div class="col-sm-12"><a href="/eyeplus/auth/login" style="color: black">
+
+    <div class="col-sm-12"><a href="/eyeplus/login" style="color: black">
       <div class="inner-addon right-addon">
         <i class="glyphicon glyphicon-chevron-right"></i>
         <p style="padding: 8px 0px 0px 10px">Sudah punya akun? Masuk</p>
       </a></div>
     </div>
+
+    <div class="col-sm-12">
+      <a href="/eyeplus/login" style="color: black ; padding: 8px 0px 0px 10px">Logout &nbsp;&nbsp;||</a>
+      <a data-toggle="modal" data-target="#account" style="color: black ; padding: 8px 0px 0px 10px">Account</a>
+    </div>
+
+</form>
+
   </div><br>
   <div style="color: #cfc9c8">Dengan mandaftar saya setuju kepada syarat dan ketentuan EyePlus.
     <a data-toggle="modal" data-target="#myModal">Syarat dan ketentuan yang berlaku dan kebijakan privasi</a>
   </div><br><br>
 
+
+
+<script type="text/javascript">
+function s(){
+  var i=document.getElementById("phone");
+  if(i.value===""){
+    document.getElementById("berikutnya").disabled=true;
+    document.getElementById("email").disabled=false;
+  }else
+    document.getElementById("berikutnya").disabled=false;
+    document.getElementById("email").disabled=true;
+}
+</script>
 
 
 <div id="myModal" class="modal fade" role="dialog">
@@ -55,22 +78,86 @@
       </div>
       <div class="modal-body">
         <textarea id="ex3">
-          Situs web (bahasa Inggris: website) adalah sekumpulan halaman web yang saling berhubungan yang umumnya berada pada peladen yang sama berisikan kumpulan informasi yang disediakan secara perorangan, kelompok, atau organisasi.[1] Sebuah situs web biasanya ditempatkan setidaknya pada sebuah server web yang dapat diakses melalui jaringan seperti Internet, ataupun jaringan area lokal (LAN) melalui alamat Internet yang dikenali sebagai URL. Gabungan atas semua situs yang dapat diakses publik di Internet disebut pula sebagai World Wide Web atau lebih dikenal dengan singkatan WWW. Meskipun setidaknya halaman beranda situs Internet umumnya dapat diakses publik secara bebas, pada praktiknya tidak semua situs memberikan kebebasan bagi publik untuk mengaksesnya, beberapa situs web mewajibkan pengunjung untuk melakukan pendaftaran sebagai anggota, atau bahkan meminta pembayaran untuk dapat menjadi aggota untuk dapat mengakses isi yang terdapat dalam situs web tersebut, misalnya situs-situs yang menampilkan pornografi, situs-situs berita, layanan surel (e-mail), dan lain-lain. Pembatasan-pembatasan ini umumnya dilakukan karena alasan keamanan, menghormati privasi, atau karena tujuan komersial tertentu.
+          KEBIJAKAN PRIVASI
+Dalam membantu Anda, kami menyediakan produk dan layanan dengan kualitas terbaik. Kami menggunakan informasi dari interaksi kami dengan Anda dan pelanggan lainnya, serta dari pihak lain. Karena kami menghormati privasi Anda, kami telah menerapkan prosedur untuk memastikan informasi pribadi Anda ditangani dengan aman dan bertanggung jawab.
 
-          Sebuah halaman web merupakan berkas yang ditulis sebagai berkas teks biasa (plain text) yang diatur dan dikombinasikan sedemikian rupa dengan instruksi-instruksi berbasis HTML atau XHTML, kadang-kadang pula disisipi dengan sekelumit bahasa skrip. Berkas tersebut kemudian diterjemahkan oleh peramban web dan ditampilkan seperti layaknya sebuah halaman pada monitor komputer.
+Kami telah memposting kebijakan privasi ini untuk menjelaskan praktik pengumpulan informasi kami dan pilihan yang Anda miliki tentang cara pengumpulan dan penggunaan informasi.
+
+Seiring waktu kami akan terus mengembangkan situs web kami dan memanfaatkan kemajuan teknologi untuk memperbaiki layanan yang kami tawarkan, kebijakan privasi ini kemungkinan akan berubah. Oleh karena itu kami mendorong Anda untuk mengacu pada kebijakan ini secara berkelanjutan sehingga Anda memahami kebijakan privasi kami saat ini.
+
+ 
+
+KEAMANAN
+
+Informasi pribadi yang diberikan di situs web dan transaksi kartu kredit online dikirimkan melalui server yang aman. Kami berkomitmen untuk menangani informasi pribadi Anda dengan standar keamanan informasi yang tinggi. Kami mengambil langkah fisik, elektronik, dan administratif yang sesuai untuk menjaga keamanan dan keakuratan informasi identitas pribadi yang kami kumpulkan, termasuk membatasi jumlah orang yang memiliki akses fisik ke server database kami, serta menggunakan sistem keamanan elektronik dan perlindungan kata kunci untuk menghindari data pribadi Anda jatuh ketangan yang tidak bertanggung jawab. Spam, Spyware, atau virus tidak diperbolehkan dalam situs. Harap mengatur dan menjaga preferensi komunikasi Anda sehingga kami dapat mengirimkan komunikasi seperti yang Anda
+
+inginkan. Anda tidak boleh mengirim pesan yang mengandung spam, spyware atau virus kedalam situs. Situs kami menggunakan teknologi enkripsi, seperti Secure Sockets Layer (SSL), untuk melindungi informasi pribadi Anda selama pengiriman data. SSL mengenkripsi informasi pemesanan seperti nama, alamat, dan nomor kartu kredit Anda. Pusat dan toko Customer Care kami juga beroperasi melalui jaringan pribadi yang aman. Harap dicatat bahwa email tidak dienkripsi dan tidak dianggap sebagai cara yang aman untuk mentransmisikan informasi kartu kredit. Jika Anda ingin melaporkan pesan yang mencurigakan, silahkan hubungi kami di 021-2991 6282.
 
 
-          Halaman-halaman web tersebut diakses oleh pengguna melalui protokol komunikasi jaringan yang disebut sebagai HTTP, sebagai tambahan untuk meningkatkan aspek keamanan dan aspek privasi yang lebih baik, situs web dapat pula mengimplementasikan mekanisme pengaksesan melalui protokol HTTPS.
+INFORMASI YANG KAMI KUMPULKAN
 
-          Penemu situs web adalah Sir Timothy John "Tim" Berners-Lee, sedangkan situs web yang tersambung dengan jaringan pertamakali muncul pada tahun 1991. Maksud dari Tim ketika merancang situs web adalah untuk memudahkan tukar menukar dan memperbarui informasi pada sesama peneliti di tempat ia bekerja. Pada tanggal 30 April 1993, CERN (tempat di mana Tim bekerja) mengumumkan bahwa WWW dapat digunakan secara gratis oleh publik.
+Umumnya, Anda dapat menelusuri situs web tanpa memberikan informasi identitas pribadi. Namun, kami mungkin meminta Anda untuk memberikan informasi identitas pribadi di berbagai tempat dan waktu di situs ini. Dalam beberapa kasus, jika Anda memilih untuk tidak memberikan informasi yang diminta kepada kami, Anda mungkin tidak dapat mengakses semua bagian situs ini atau berpartisipasi dalam semua fitur-fiturnya. Kami menerima dan menyimpan informasi identitas pribadi yang Anda masukkan di situs kami kapan pun Anda berbelanja di Lejel.com baik menggunakan website ataupun Aplikasi Mobile. Kami akan mengumpulkan informasi identitas pribadi Anda untuk mempermudah proses pemesanan ataupun pembayaran yang tersedia di situs kami. Data informasi pribadi yang kami kumpulkan dari Anda sebagai berikut: Nama, Alamat, Nomor telepon dan alamat email Anda. Jika Anda menggunakan salah satu layanan kami, atau berpartisipasi dalam salah satu survei, promosi, atau undian kami, kami mungkin meminta informasi tambahan, seperti usia, minat, atau preferensi produk Anda. Dari pembelian dan interaksi lainnya dengan kami, kami memperoleh informasi mengenai produk atau layanan spesifik yang Anda beli atau gunakan.
 
-          Sebuah situs web bisa berupa hasil kerja dari perorangan atau individu, atau menunjukkan kepemilikan dari suatu organisasi, perusahaan. biasanya pembahasan dalam sebuah situs web merujuk pada sebuah ataupun beberapa topik khusus, atau kepentingan tertentu. Sebuah situs web bisa berisi pranala yang menghubungkan ke situs web lain, demikian pula dengan situs web lainnya. Hal ini terkadang membuat perbedaan antara situs web yang dibuat oleh individu ataupun perseorangan dengan situs web yang dibuat oleh organisasi bisnis menjadi tidak begitu jelas.
 
-          Situs web biasanya ditempatkan pada server web. Sebuah server web umumnya telah dilengkapi dengan perangkat-perangkat lunak khusus untuk menangani pengaturan nama ranah, serta menangani layanan atas protokol HTTP yang disebut sebagai Server HTTP (bahasa Inggris: HTTP Server) seperti Apache HTTP Server, atau Internet Information Services (IIS).
+
+BAGAIMANA KAMI MENGGUNAKAN INFORMASI YANG KAMI KUMPULKAN
+
+Kami menggunakan informasi yang kami kumpulkan untuk berbagai keperluan, diantaranya:
+
+Untuk menyelesaikan transaksi pembelian Anda
+Untuk memberikan layanan yang Anda minta
+Mengirimkan katalog dan penawaran lainnya melalui email
+Untuk mengidentifikasi preferensi produk dan layanan Anda, kami dapat memberi tahu Anda tentang produk, layanan, dan promosi baru atau tambahan yang mungkin menarik bagi Anda.
+Memberi tahu Anda tentang penarikan produk atau memberikan informasi lain mengenai produk yang telah Anda beli
+Untuk meningkatkan pilihan barang dagangan, layanan pelanggan, dan keseluruhan pengalaman berbelanja
+ 
+
+KETENTUAN PRIVASI
+
+ANDA MEMAHAMI DAN MENYETUJUI BAHWA LEJEL MEMILIKI HAK UNTUK MENGUNGKAPKAN INFORMASI PRIBADI ANDA PADA SEMUA BADAN PENEGAK HUKUM DAN PERATURAN PEMERINTAH YANG BERLAKU DI INDONESIA SEBAGAI UPAYA UNTUK MENJALANKAN ATURAN YANG TELAH DIBUAT OLEH PEMERINTAH. DAN  SEJAUH DIIZINKAN OLEH HUKUM YANG BERLAKU, DALAM HAL INI ANDA SETUJU UNTUK TIDAK MELAKUKAN TUNTUTAN APAPUN TERHADAP LEJEL UNTUK PENGUNGKAPAN INFORMASI PRIBADI ANDA.
+
+ 
+
+PERUBAHAN PRIVASI
+
+Kami memiliki hak untuk merubah kebijakan Privasi ini secara berkala dan tanpa pemberitahuan sebelumnya kepada Anda. Silahkan untuk mengunjungi Kebijakan Privasi kami untuk mengetahui perubahan yang kami lakukan.
         </textarea>
       </div>
       <div class="modal-footer" hidden="div">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="account" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm" >
+    <!-- Modal content-->
+    <div class="modal-content" style="background-color: #ebebeb">
+      <div class="modal-header">
+        <span type="button" class="close" data-dismiss="modal">&times;</span>
+      </div>
+      <div class="modal-body">
+          <div class="row" id="ex3">
+            <!-- <div class="col-sm-6">hjgt</div>
+            <div class="col-sm-6">hjgt</div> -->
+            <table style="margin: 5px" >
+              <tr class="row">
+                <td class="col-sm-4 text-center">
+                  <img class="barcode" style="width: 40%;" src="https://res.cloudinary.com/techsnips/image/fetch/w_2000,f_auto,q_auto,c_fit/https://adamtheautomator.com/content/images/size/w2000/2019/10/user-1633249_1280.png">
+                  username
+                </td>
+                <td class="col-sm-8" width="180px">
+                  Username  : <input type="" name="" class="form-control">
+                  Foto : <input type="" name="" class="form-control"><br>
+                  <a href="/eyeplus/forgotpassword"> change password</a>
+                  <br><br>
+                  <button>Simpan</button><br><br>
+                </td>
+              </tr>
+            </table>
+          </div>
       </div>
     </div>
 
@@ -138,6 +225,10 @@ border:1px solid #333333;
       width: 100%;
     }
   }
+
+  table, td, th {
+      border: 1px solid black;
+    } 
   </style>
 
 @endsection

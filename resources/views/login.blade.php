@@ -85,10 +85,10 @@
         </div>
         <div class="clearfix">
             <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
-            <a href="/eyeplus/auth/forgotpassword" class="pull-right">Forgot Password?</a>
+            <a href="/eyeplus/forgotpassword" class="pull-right">Forgot Password?</a>
         </div>
     </form>
-    <p class="text-center small">Don't have an account? <a href="/eyeplus/auth/register">Sign up here!</a></p>
+    <p class="text-center small">Don't have an account? <a href="/eyeplus/register">Sign up here!</a></p>
     </div>
     <div class="col-sm-4"></div>
   </div>

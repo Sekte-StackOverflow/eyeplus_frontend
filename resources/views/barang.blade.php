@@ -1,22 +1,27 @@
 @extends('master')
 
 @section('heading')
-  <div class="embed-responsive embed-responsive-16by9">
-    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/hAiI3lRP0HM" allowfullscreen></iframe>
-  </div>
-
+  @foreach($array['id'] as $key => $id)
+    @if($id == $idbarang)
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ $array['youtube'][$key]}}" allowfullscreen></iframe>
+    </div>
+    @endif
+  @endforeach
 @endsection
 
 @section('konten')
 <main>
     <section class="barang-cards">
+      @foreach($array['id'] as $key => $id)
+        @if($id == $idbarang)
         <article>
-          <img class="barang-img" src="http://placekitten.com/305/205" alt=" " />
+          <img class="barang-img" src="{{ asset('image/Product/'.$array['product'][$key] ) }}" alt=" " />
           <font class="harga-asli"><s> Rp 1.500.000 </s><font class="diskon">40 %</font></font>
           <font class="harga">RP 1.280.000</font>
         </article>
         <article style="background-color: white">
-          <img class="mini-img" src="http://placekitten.com/305/205">
+          <img class="mini-img" src="{{ asset('image/Product/' .$array['product'][$key] ) }}">
             <div style="margin: 5px"><b>Judul</b></div>
           	<div class="barang-ket" id="ex3">
           		<hr class="barang-hr">
@@ -36,6 +41,8 @@
         <article>
           <img class="barang-img" src="{{ asset('image/banner/popup1.png') }}" alt=" " />
         </article>
+        @endif
+      @endforeach
     </section>
 </main><br>
 @endsection
