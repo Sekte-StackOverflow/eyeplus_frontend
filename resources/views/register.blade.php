@@ -19,7 +19,7 @@
     margin: 30px auto;
       position: absolute;
   text-align: center;
-  top: 15%;
+  top: 5%;
   padding: 10px;
   }
     .login-form form {        
@@ -56,6 +56,10 @@
     .right-addon .glyphicon { right: 0px;}
     .right-addon input { padding-right: 30px; }
 
+        .logo{
+        height: auto;
+        width: 150px;
+    }
 }
 </style>
 </head>
@@ -64,7 +68,8 @@
   <div class="row">
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
-    <form action="{{ route('register')}}" method="post">
+    <img src="{{ asset('image/logo.png') }}" class="logo"><br><br>
+    <form action="{{ route('register')}}" method="post" style="background-color: white">
         {{ csrf_field() }}
         <h2 class="text-center">Sign Up</h2>   
         <div class="form-group">
@@ -81,10 +86,10 @@
 
             <div class="inner-addon right-addon">
                 <i class="glyphicon glyphicon-envelope"></i>
-                <input type="text" class="form-control  {{$errors->has('email') ? 'is-invalid' : ''}}" placeholder="Email / Phone" name="email"  value="{{ old('email') }}"/>
-                @if($errors->has('email'))
+                <input type="text" class="form-control  {{$errors->has('detail') ? 'is-invalid' : ''}}" placeholder="Email / Phone" name="detail"  value="{{ old('detail') }}"/>
+                @if($errors->has('detail'))
                     <div class="invalid-feedback text-danger">
-                        {{ $errors->first('email')}}
+                        {{ $errors->first('detail')}}
                     </div>
                 @endif
             </div><br>

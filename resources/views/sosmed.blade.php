@@ -9,29 +9,26 @@
 @section('konten')
 
 <div class="social text-center">
-
-  <a class="social-icon" data-tooltip="youtube.com" href="">
+@foreach($link as $link)
+  <a class="social-icon" data-tooltip="Youtube" href="{{$link->youtube}}" target="_blank">
     <img src="{{ URL::to('/image/youtube.png') }}" width="100%" height="100%">
   </a>
-  <a class="social-icon" data-tooltip="Instagram" href="">
+  <a class="social-icon" data-tooltip="Instagram" href="{{$link->instagram}}" target="_blank">
     <img src="{{ URL::to('/image/instagram.png') }}" width="100%" height="100%">
   </a>
-  <a class="social-icon" data-tooltip="Facebook" href="">
+  <a class="social-icon" data-tooltip="Facebook" href="{{$link->facebook}}" target="_blank">
     <img src="{{ URL::to('/image/facebook.png') }}" width="100%" height="100%">
   </a>
-  <a class="social-icon" data-tooltip="Twitter" href="">
+  <a class="social-icon" data-tooltip="Twitter" href="{{$link->twitter}}" target="_blank">
     <img src="{{ URL::to('/image/twitter.png') }}" width="100%" height="100%">
   </a>
-  <a class="social-icon" data-tooltip="Facebook"">
-    <img src="{{ URL::to('/image/facebook.png') }}" width="100%" height="100%">
-  </a>
-  <a class="social-icon" data-tooltip="Pinterest" href="">
+  <a class="social-icon" data-tooltip="Pinterest" href="{{$link->pinterest}}" target="_blank">
     <img src="{{ URL::to('/image/pinterest.png') }}" width="100%" height="100%">
   </a>
-  <a class="social-icon" data-tooltip="LinkedIn" href="">
+  <a class="social-icon" data-tooltip="LinkedIn" href="{{$link->linkedin}}" target="_blank"s>
     <img src="{{ URL::to('/image/linkedin.png') }}" width="100%" height="100%">
   </a>
-
+@endforeach
 </div>
 @endsection
 

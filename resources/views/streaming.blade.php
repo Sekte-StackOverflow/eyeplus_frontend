@@ -12,14 +12,8 @@
     object-fit:fill;
     border:0" controls autoplay loop playsinline >
 
-@foreach($array['id'] as $key => $id)
-@if($id == $idstream)
-<source type="application/x-mpegURL" src="{{ $array['link'][$key] }}">
-<!-- <source type="application/x-mpegURL" src="https://stream.suryaiptv.net/streams/40_.m3u8">  --> 
-<!-- kadrama -->
-<!-- <source type="application/x-mpegURL" src="https://stream.suryaiptv.net/streams/125_.m3u8">  -->
-<!-- lejel live -->
-@endif
+@foreach($stream as $s)
+  <source type="application/x-mpegURL" src="{{ $s->link }}">
 @endforeach 
   </div>
 
@@ -83,14 +77,19 @@
 @section('konten')
 <main>
       <section class="cards">
-        @foreach($array['id'] as $key => $id)
+        @foreach($video as $v)
         <article>
-          <!-- <a href="live/{{$i}}"> -->
-          <a href="../live/{{ $id }}">
-            <img class="article-img" src="{{ asset('image/Live Video/'.$array['poster'][$key] ) }}" alt=" " />
-            <h4 class="article-title">{{$array['name'][$key]}}</h4>
+
+          <a href="../live/{{ $v->id }}">
+            <img class="article-img" src="https://alvaindopratama.com/admin-eyeplus/media/img/{{$v->thumbnail}}" alt=" " />
+            <h4 class="article-title">{{$v->name}}</h4>
             <div class="watching">1000 menonton</div>
-            <font class="live">LIVE
+            <font class="live">
+              @if($v->tipevideo == "Live Streaming")
+                LIVE
+              @else
+                VOD
+              @endif
             </font>
           </a>
         </article>

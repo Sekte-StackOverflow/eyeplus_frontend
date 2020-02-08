@@ -15,7 +15,7 @@
     margin: 30px auto;
       position: absolute;
   text-align: center;
-  top: 19%;
+  top: 10%;
   padding: 10px;
   }
     .login-form form {        
@@ -52,6 +52,10 @@
     .right-addon .glyphicon { right: 0px;}
     .right-addon input { padding-right: 30px; }
 
+    .logo{
+        height: auto;
+        width: 150px;
+    }
 }
 </style>
 </head>
@@ -60,7 +64,8 @@
   <div class="row">
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
-    <form action="/examples/actions/confirmation.php" method="post">
+    <img src="{{ asset('image/logo.png') }}" class="logo"><br><br>
+    <form action="/examples/actions/confirmation.php" method="post" style="background-color: white">
         <h4 class="text-center">You forgot your password? Here you can easily retrieve a new password.</h4>   
         <div class="form-group">
             <div class="inner-addon right-addon">

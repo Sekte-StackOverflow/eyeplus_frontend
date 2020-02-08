@@ -30,21 +30,60 @@
     <div class="col-sm-12">
       <div class="inner-addon right-addon">
         <i class="glyphicon glyphicon-envelope"></i>
-        <input class="form-control input" placeholder="Email" id="email" disabled />
+        <input class="form-control input" placeholder="Email" id="email" onkeyup="disabledtelp()"/>
       </div>
     </div>
 
-    <div class="col-sm-12"><a href="/eyeplus/login" style="color: black">
-      <div class="inner-addon right-addon">
-        <i class="glyphicon glyphicon-chevron-right"></i>
-        <p style="padding: 8px 0px 0px 10px">Sudah punya akun? Masuk</p>
-      </a></div>
+      @if(!Auth::guest() != null)
+        <div class="col-sm-12">
+          {{ Auth::user()->detail }}
+          <a href="{{route('logout')}}" style="color: black ; padding: 8px 0px 0px 10px">Logout</a>
+          &nbsp;&nbsp;||
+          <a data-toggle="modal" data-target="#account" style="color: black ; padding: 8px 0px 0px 10px">Account</a>
+        </div>
+
+
+<div id="account" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm" >
+    <!-- Modal content-->
+    <div class="modal-content" style="background-color: #ebebeb">
+      <div class="modal-header">
+        <span type="button" class="close" data-dismiss="modal">&times;</span>
+      </div>
+      <div class="modal-body">
+          <div class="row" id="ex3">
+            <!-- <div class="col-sm-6">hjgt</div>
+            <div class="col-sm-6">hjgt</div> -->
+            <table style="margin: 5px" >
+              <tr class="row">
+                <td class="col-sm-4 text-center">
+                  <img class="barcode" style="width: 40%;" src="https://res.cloudinary.com/techsnips/image/fetch/w_2000,f_auto,q_auto,c_fit/https://adamtheautomator.com/content/images/size/w2000/2019/10/user-1633249_1280.png">
+                  {{ Auth::user()->detail }}
+                </td>
+                <td class="col-sm-8" width="180px">
+                  Username  : <input type="" name="" class="form-control" value="{{ Auth::user()->detail }}" disabled>
+                  Foto : <input type="" name="" class="form-control"><br>
+                  <a href="/eyeplus/forgotpassword"> change password</a>
+                  <br><br>
+                  <button>Simpan</button><br><br>
+                </td>
+              </tr>
+            </table>
+          </div>
+      </div>
     </div>
 
-    <div class="col-sm-12">
-      <a href="/eyeplus/login" style="color: black ; padding: 8px 0px 0px 10px">Logout &nbsp;&nbsp;||</a>
-      <a data-toggle="modal" data-target="#account" style="color: black ; padding: 8px 0px 0px 10px">Account</a>
-    </div>
+  </div>
+</div>
+        
+      @else
+      <div class="col-sm-12"><a href="/eyeplus/login" style="color: black">
+        <div class="inner-addon right-addon">
+          <i class="glyphicon glyphicon-chevron-right"></i>
+          <p style="padding: 8px 0px 0px 10px">Sudah punya akun? Masuk</p>
+        </a></div>
+      </div>
+      @endif
 
 </form>
 
@@ -59,11 +98,20 @@
 function s(){
   var i=document.getElementById("phone");
   if(i.value===""){
-    document.getElementById("berikutnya").disabled=true;
     document.getElementById("email").disabled=false;
+    document.getElementById("berikutnya").disabled=true;
   }else
-    document.getElementById("berikutnya").disabled=false;
     document.getElementById("email").disabled=true;
+    document.getElementById("berikutnya").disabled=false;
+}
+function disabledtelp(){
+  var i=document.getElementById("email");
+  if(i.value===""){
+    document.getElementById("phone").disabled=false;
+    document.getElementById("berikutnya").disabled=true;
+  }else
+    document.getElementById("phone").disabled=true;
+    document.getElementById("berikutnya").disabled=false;
 }
 </script>
 
@@ -131,38 +179,7 @@ Kami memiliki hak untuk merubah kebijakan Privasi ini secara berkala dan tanpa p
   </div>
 </div>
 
-<div id="account" class="modal fade" role="dialog">
-  <div class="modal-dialog modal-sm" >
-    <!-- Modal content-->
-    <div class="modal-content" style="background-color: #ebebeb">
-      <div class="modal-header">
-        <span type="button" class="close" data-dismiss="modal">&times;</span>
-      </div>
-      <div class="modal-body">
-          <div class="row" id="ex3">
-            <!-- <div class="col-sm-6">hjgt</div>
-            <div class="col-sm-6">hjgt</div> -->
-            <table style="margin: 5px" >
-              <tr class="row">
-                <td class="col-sm-4 text-center">
-                  <img class="barcode" style="width: 40%;" src="https://res.cloudinary.com/techsnips/image/fetch/w_2000,f_auto,q_auto,c_fit/https://adamtheautomator.com/content/images/size/w2000/2019/10/user-1633249_1280.png">
-                  username
-                </td>
-                <td class="col-sm-8" width="180px">
-                  Username  : <input type="" name="" class="form-control">
-                  Foto : <input type="" name="" class="form-control"><br>
-                  <a href="/eyeplus/forgotpassword"> change password</a>
-                  <br><br>
-                  <button>Simpan</button><br><br>
-                </td>
-              </tr>
-            </table>
-          </div>
-      </div>
-    </div>
 
-  </div>
-</div>
 
   <style type="text/css">
     .input{

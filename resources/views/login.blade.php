@@ -15,7 +15,7 @@
     margin: 30px auto;
       position: absolute;
   text-align: center;
-  top: 15%;
+  top: 10%;
   padding: 10px;
   }
     .login-form form {        
@@ -52,6 +52,11 @@
     .right-addon .glyphicon { right: 0px;}
     .right-addon input { padding-right: 30px; }
 
+    .logo{
+        height: auto;
+        width: 150px;
+    }
+
 }
 </style>
 </head>
@@ -60,7 +65,8 @@
   <div class="row">
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
-    <form action="{{ route('login')}}" method="post">
+        <img src="{{ asset('image/logo.png') }}" class="logo"><br><br>
+    <form action="{{ route('login')}}" method="post" style="background-color: white">
         {{ csrf_field() }}
         <h2 class="text-center">Sign in</h2>   
         <div class="form-group">
