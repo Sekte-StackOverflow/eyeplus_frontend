@@ -1,47 +1,43 @@
 @extends('master')
 
 @section('heading')
-  @foreach($array['id'] as $key => $id)
-    @if($id == $idbarang)
+  @foreach($produk as $p)
     <div class="embed-responsive embed-responsive-16by9">
-      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ $array['youtube'][$key]}}" allowfullscreen></iframe>
+      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ $p->youtube}}" allowfullscreen></iframe>
     </div>
-    @endif
   @endforeach
 @endsection
 
 @section('konten')
 <main>
     <section class="barang-cards">
-      @foreach($array['id'] as $key => $id)
-        @if($id == $idbarang)
+      @foreach($produk as $p)
         <article>
-          <img class="barang-img" src="{{ asset('image/Product/'.$array['product'][$key] ) }}" alt=" " />
-          <font class="harga-asli"><s> Rp 1.500.000 </s><font class="diskon">40 %</font></font>
-          <font class="harga">RP 1.280.000</font>
+          <img class="barang-img" src="https://eyeplus.co.id/admin-eyeplus/media/img/{{ $p->thumnail }}" alt=" " />
+          <font class="harga-asli1"><s> @currency($p->price) </s><font class="diskon1">{{ $p->discount }} %</font></font>
+          <font class="harga1">@currency($p->finalprice)</font>
         </article>
         <article style="background-color: white">
-          <img class="mini-img" src="{{ asset('image/Product/' .$array['product'][$key] ) }}">
-            <div style="margin: 5px"><b>Judul</b></div>
+          <img class="mini-img" src="https://eyeplus.co.id/admin-eyeplus/media/img/{{$p->detailgambar}}">
+            <div style="margin: 5px"><b>{{$p->nama}}</b></div>
           	<div class="barang-ket" id="ex3">
           		<hr class="barang-hr">
-          		@for ($i = 0 ; $i <= 12 ; $i++)
-	          		<div class="row">
-      					  <div class="column">
-      					    Capacity
-      					  </div>
-      					  <div class="column2">
-      					    : 600ml
-      					  </div>
-					     </div>
-					     <hr class="barang-hr">
-				      @endfor
+              @foreach($template as $t)
+                <div class="row">
+                  <div class="column">
+                    {{$t->deskripsi}}
+                  </div>
+                  <div class="column2">
+                    : {{$t->value}}
+                  </div>
+               </div>
+               <hr class="barang-hr">
+              @endforeach
         	</div> 
         </article>
         <article>
-          <img class="barang-img" src="{{ asset('image/banner/popup1.png') }}" alt=" " />
+          <img class="barang-img" src="https://eyeplus.co.id/admin-eyeplus/media/img/{{ $p->banner }}" alt=" " />
         </article>
-        @endif
       @endforeach
     </section>
 </main><br>
@@ -82,4 +78,35 @@ border:2px solid #8c8b8b;
 background-color: #636363;
 border:1px solid #333333;
 } 
+
+.harga1 {
+  position: absolute;
+  bottom: 36px;
+  left: 150px;
+  padding: 2px;
+  color: white;
+  font-weight:bold;
+  font-size: 14px;
+  background-color: #ff6f00;
+}
+
+.harga-asli1{
+  position: absolute;
+  bottom: 60px;
+  left: 150px;
+  padding: 0px 0px 0px 5px;
+  color: white;
+  font-weight:bold;
+  font-size: 11px;
+  background-color:#8a8884;
+}
+
+.diskon1{
+  padding: 2px;
+  color: white;
+  font-weight:bold;
+  font-size: 12px;
+  padding: 1px 3px 1px 3px;
+  background-color:#333333;
+}
 </style>

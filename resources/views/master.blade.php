@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>EyePlus</title>
+  <title>eyePLUS</title>
     <meta charset="utf-8">
     <link rel="shortcut icon" href="{{ asset('image/eyeplus.png') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,32 +28,39 @@
 </head>
 <body style="background-color: #d6d6d6;  ">
 
-<nav class="navbar navbar-inverse navbar-fixed-top ">
-<div class="row">
+<nav class="navbar navbar-inverse navbar-fixed-top " style="background-color:#595959; border: none;">
+    <div class="container h-100">
+        <div class="d-flex h-100">
+            <div class="w-100 text-black">
+                <div class="container">
+
+<div class="row" >
   <div class="col-sm-1"></div>
   <div class="col-sm-10">
-  <div class="container-fluid" >
+  <!-- <div class="container-fluid" > -->
     <div class="navbar-header" >
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" >
+        <span class="icon-bar" ></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="/eyeplus/live"><img src="{{ URL::to('/image/logo.png') }}" style="height: 150%; margin-left: 50%"></a>
+      <a class="navbar-brand" href="/live" style="padding: 9px 9px 9px 0px; height: 50px;" ><img src="{{ URL::to('/image/logo.png') }}" class="logo"></a>
     </div>
     <div class="collapse navbar-collapse " id="myNavbar" >
-      <ul class="nav navbar-nav navbar-right" >
-        <li class="{{ Request::is('live') ? 'active' : '' }}" style="margin-right: 60px;"><a href="/eyeplus/live" class="nav-link fa fa-television fa-2x text-center"><br><p class="sansserif">Live Movie</p> </a></li>
-        <li class="{{ Request::is('shopping') ? 'active' : '' }}" style="margin-right: 60px"><a href="/eyeplus/shopping" class="nav-link fa fa-shopping-cart fa-2x text-center"><br><p class="sansserif">Shopping</p> </a></li>
-        <li class="{{ Request::is('sosmed') ? 'active' : '' }}" style="margin-right: 60px"><a href="/eyeplus/sosmed" class="nav-link fa fa-comment fa-2x text-center"><br><p class="sansserif">Sosial Media</p> </a></li>
-        <li class="{{ Request::is('info') ? 'active' : '' }}" style="margin-right: 60px"><a href="/eyeplus/info" class="nav-link fa fa-info-circle fa-2x text-center"><br><p class="sansserif">Info</p> </a></li>
+      <ul class="nav navbar-nav navbar-right"  >
+        <li class="{{ Request::is('live') ? 'bg' : '' }} space" ><a href="/live" class="nav-link fa fa-television fa-2x text-center"><br><p class="sansserif" >Live Movie</p> </a></li>
+        <li class="{{ Request::is('shopping') ? 'bg' : '' }} space" ><a href="/shopping" class="nav-link fa fa-shopping-cart fa-2x text-center"><br><p class="sansserif">Shopping</p> </a></li>
+        <li class="{{ Request::is('sosmed') ? 'bg' : '' }} space" ><a href="/sosmed" class="nav-link fa fa-comment fa-2x text-center"><br><p class="sansserif">Sosial Media</p> </a></li>
+        <li class="{{ Request::is('info') ? 'bg' : '' }}" ><a href="/info" class="nav-link fa fa-info-circle fa-2x text-center"><br><p class="sansserif">Info</p> </a></li>
       </ul>
 
     </div>
-  </div>
+  <!-- </div> -->
 </div>
 <div class="col-sm-1"></div>
 </div>
+
+</div></div></div></div>
 </nav><br><br><br>
 
     <header>
@@ -72,7 +79,7 @@
                         <!-- <div class="col-sm-1"></div> -->
                         <div class="col-sm-3 ">
                           <div class="gratis">GRATIS!</div>
-                          <div class="keterangan"> Download aplikasi <b>eyePlus</b> di gadget Android anda</div>
+                          <div class="keterangan"> Download aplikasi <b>eyePLUS</b> di gadget Android anda</div>
                           <img class="barcode" src="https://ecs7.tokopedia.net/img/cache/700/product-1/2018/11/8/39617213/39617213_91fd0f0c-03c2-43b4-861a-64e9f04e8f24_700_700.jpeg"><br>
                         </div>
                       </div>
@@ -82,14 +89,13 @@
 
                           <hr>
                           <div style="
-                            background-color: #080807;
+                            background-color: rgb(64,62,63);
                             padding: 10px;
                             margin: -15px;
                             color: white;
-                            font-size: 10px;">@2020 by <b>EyePlus</b> All Rights Reserved</div>
+                            font-size: 10px;">@2020 <b>eyePLUS. </b> All Rights Reserved.</div>
                     </div>
-                  </div>      
-                  <div class="col-sm-1"></div>
+                  </div>   
                 </div>
             </div>
         </div>
@@ -100,10 +106,40 @@
 
 
 <style type="text/css">
-@media screen and (max-width: 601px) {
+
+@media screen and (max-width: 767px) {
   .barcode {
     width: 30%
   }
+  .space{
+  margin-right: 0px
+  }
+}
+
+.bg{
+  background-color: rgb(64,62,63);
+}
+
+
+@media screen and (max-width: 767px) {
+  .logo{
+  height: 33px;
+  }
+
+}
+
+body{
+  font-family: 'Montserrat', sans-serif;
+}
+
+@media screen and (min-width: 768px) {
+.logo{
+  height: 42px;
+}
+
+.space{
+  margin-right: 40px
+}
 }
 
 
