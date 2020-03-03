@@ -3,37 +3,41 @@
 @section('heading')
 <div class="video-responsive">
   <div class="embed-responsive embed-responsive-16by9">
-  <img src="{{ asset('image/banner/images.jpg' ) }}" style="width:100%" class="img-responsive">
+  <img src="https://eyeplus.co.id/admin-eyeplus/media/img/{{ $poster->poster }}" style="width:100%" class="img-responsive banner">
   </div>
 </div>
 @endsection
 
 @section('banner')
+@if($count >0)
   <div class="row " >
     <div id="myCarousel" class="carousel slide" data-ride="carousel" >
       <ol class="carousel-indicators">
-        @for ($i = 0 ; $i <= $total ; $i++)
-        <li data-target="#myCarousel" data-slide-to="$i"></li>
+        @for ($i = 0 ; $i <= $count-1 ; $i++)
+          @if($i === 0)
+            <li data-target="#myCarousel" data-slide-to="{{$i}}" class="active"></li>
+          @else
+            <li data-target="#myCarousel" data-slide-to="{{$i}}"></li>
+          @endif
         @endfor
       </ol>
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner img-center " role="listbox" >
         <div class="item active" >
-          <img src="{{ asset('image/banner/1.jpg') }}" alt="Image" style="border-radius: 7px"> 
+          <a href="{{$bannerfirst->link}}" target="_blank">
+            <img src="https://eyeplus.co.id/admin-eyeplus/media/img/{{$bannerfirst->web}}" alt="Image" style="border-radius: 7px"> 
+          </a>
         </div>
-        <div class="item ">
-          <img src="{{ asset('image/banner/2.jpg') }}" alt="Image" style="border-radius: 7px"> 
-        </div>
-        <div class="item ">
-          <img src="{{ asset('image/banner/3.jpg') }}" alt="Image" style="border-radius: 7px"> 
-        </div>
-
-        <!-- @for ($i = 0 ; $i <= $total-1; $i++)
-        <div class="item" >
-          <img src="{{ asset('image/baner/4.jpg') }}" alt="Image">     
-        </div>
-        @endfor -->
+        @if($count > 1)
+          @foreach($bannernext as $b)
+            <div class="item ">
+            <a href="{{$b->link}}" target="_blank">
+              <img src="https://eyeplus.co.id/admin-eyeplus/media/img/{{$b->web}}" alt="Image" style="border-radius: 7px"> 
+            </a>
+            </div>
+          @endforeach
+        @endif
       </div>
 
       <!-- Left and right controls -->
@@ -46,16 +50,17 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-</div><br><br>
+</div><br>
+@endif
 @endsection
 
 @section('konten')
-<div class="scroll" id="ex3">
+<div class="scroll" id="ex3" >
 <main>
-      <section class="cards">
+      <section class="cards" >
 
         @foreach($video as $v)
-        <article style="background-color: white">
+        <article style="background-color: #f8f8f8">
           @if($v->aksestipe === "All User" )
 
           <form action="live/{{ $v->id }}" method="post" name="form" id="form">
@@ -64,23 +69,23 @@
               <input type="hidden" name="iduser" value="{{ Auth::user()->id }}">
               <input type="hidden" name="activity" value="{{$v->name}}">
               <input type="hidden" name="id" value="{{$v->id}}">
-              <!-- <a href="live/{{ $v->id }}" type="submit"> -->
+              <a href="live/{{ $v->id }}" type="submit">
               <button type="submit" id="submit" >
                 <img class="article-img " src="https://eyeplus.co.id/admin-eyeplus/media/img/{{$v->thumbnail}}" alt=" " />
                 <h4 class="article-title">{{$v->name}}</h4>
-                <div class="watching">{{$v->watching_w}} Watching</div>
+                <div class="watching">{{$v->watching_w  + $v->watching_a}} Watching</div>
                 <font class="live">{{$v->tipevideo}}</font>
               </button>
-              <!-- </a> -->
+              </a>
             @else
             <input type="hidden" name="id" value="{{$v->id}}">
             <button type="submit" id="submit" >
-              <!-- <a href="live/{{ $v->id }}"> -->
+              <a href="live/{{ $v->id }}">
               <img class="article-img " src="https://eyeplus.co.id/admin-eyeplus/media/img/{{$v->thumbnail}}" alt=" " />
               <h4 class="article-title">{{$v->name}}</h4>
-              <div class="watching">{{$v->watching_w}} Watching</div>
+              <div class="watching">{{$v->watching_w + $v->watching_a}} Watching</div>
               <font class="live">{{$v->tipevideo}} </font>
-              <!-- </a> -->
+              </a>
             </button>
             @endif
           </form>
@@ -92,23 +97,23 @@
               <input type="hidden" name="iduser" value="{{ Auth::user()->id }}">
               <input type="hidden" name="activity" value="{{$v->name}}">
               <input type="hidden" name="id" value="{{$v->id}}">
-              <!-- <a href="live/{{ $v->id }}" type="submit"> -->
+              <a href="subscribe/{{ $v->id }}" type="submit">
               <button type="submit" id="submit" >
                 <img class="article-img " src="https://eyeplus.co.id/admin-eyeplus/media/img/{{$v->thumbnail}}" alt=" " />
                 <h4 class="article-title">{{$v->name}}</h4>
-                <div class="watching">{{$v->watching_w}} Watching</div>
+                <div class="watching">{{$v->watching_w  + $v->watching_a}} Watching</div>
                 <font class="live">{{$v->tipevideo}}</font>
               </button>
-              <!-- </a> -->
+              </a>
             @else
             <input type="hidden" name="id" value="{{$v->id}}">
             <button type="submit" id="submit" >
-              <!-- <a href="subscribe/{{ $v->id }}"> -->
+            <a href="subscribe/{{ $v->id }}">
               <img class="article-img " src="https://eyeplus.co.id/admin-eyeplus/media/img/{{$v->thumbnail}}" alt=" " />
               <h4 class="article-title">{{$v->name}}</h4>
-              <div class="watching">{{$v->watching_w}} Watching</div>
+              <div class="watching">{{$v->watching_w  + $v->watching_a}} Watching</div>
               <font class="live">{{$v->tipevideo}} </font>
-            <!-- </a> -->
+            </a>
             </button>
             @endif
           </form>
@@ -127,7 +132,7 @@
     <div class="modal-content" style="background-color: transparent;">
       <div class="modal-body" >
         <span type="button" class="close" data-dismiss="modal" style="color: white">&times;</span>
-        <a href="https://lejel.co.id/promotion/valentine-s-day-sale.html" target="_blank"><img class="barang-img" src="{{ asset('image/banner/pop-up-valentine.png') }}" alt=" "/></a>
+        <a href="{{$popup->link}}" target="_blank"><img class="barang-img" src="https://eyeplus.co.id/admin-eyeplus/media/img/{{$popup->web}}" alt=" "/></a>
       </div>
       <div class="modal-footer" hidden="div">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -137,14 +142,14 @@
   </div>
 </div>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   function showOverlay() {
   // $('#myModal').show()
   document.getElementById("popup").click();
 }
 setTimeout(showOverlay, 3000)
 </script>
-
+ -->
 <style type="text/css">
 @media screen and (max-width: 1000px) {
   .cards {
@@ -164,8 +169,8 @@ setTimeout(showOverlay, 3000)
   }
   .modal-sm{
     margin-top: 6%;
-    max-width: 400px;
-    min-width: 400px;
+    max-width: 500px;
+    min-width: 500px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -191,8 +196,8 @@ setTimeout(showOverlay, 3000)
   }
   .modal-sm{
     margin-top: 15%;
-    max-width: 350px;
-    min-width: 350px;
+    max-width: 450px;
+    min-width: 450px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -220,7 +225,8 @@ setTimeout(showOverlay, 3000)
   }
   .modal-sm{
     margin-top: 20%;
-    max-width: 250px;
+    max-width: 400px;
+    min-width: 400px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -247,9 +253,9 @@ setTimeout(showOverlay, 3000)
       margin-right: 15px;
   }
   .modal-sm{
-    margin-top: 25%;
-    max-width: 200px;
-    min-height: 200px
+    margin-top: 20%;
+    max-width: 300px;
+    min-width: 300px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -270,9 +276,9 @@ setTimeout(showOverlay, 3000)
       margin-right: 15px;
   }
   .modal-sm{
-    margin-top: 6%;
-    max-width: 500px;
-    min-width: 500px;
+    margin-top: 5%;
+    max-width: 630px;
+    min-width: 630px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -283,15 +289,15 @@ setTimeout(showOverlay, 3000)
 
 #ex3::-webkit-scrollbar{
 width:11px;
-background-color:white;
+background-color:#f8f8f8;
 } 
 #ex3::-webkit-scrollbar-thumb{
 background-color:#ebebeb;
 border-radius:10px;
 }
 #ex3::-webkit-scrollbar-thumb:hover{
-background-color:#c4c2c2;
-border:2px solid #8c8b8b;
+background-color:#f2f0f0;
+border:2px solid #c4c2c2;
 }
 #ex3::-webkit-scrollbar-thumb:active{
 background-color: #636363;
@@ -339,7 +345,7 @@ button {
   font-size: 10px;
   text-align: left;
   padding: 5px 5px 5px 0px; 
-  background-color: white;
+  background-color: #f8f8f8;
 }
 
 .live {
@@ -354,5 +360,12 @@ button {
   border-radius: 5px 0px 5px 0px;
   background-color: #ff6f00;
 }
+    .banner{
+    height: 100%;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    }
 </style>
 @endsection

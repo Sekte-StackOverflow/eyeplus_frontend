@@ -38,7 +38,11 @@ Route::post('/subscribe/{id}','NavbarController@subscribepost')->middleware('ver
 
 Route::get('/logintelp', 'ValidasiController@login')->name('logintelp');
 Route::get('/registertelp', 'ValidasiController@register')->name('registertelp');
-Route::get('/registertelp/{id}', 'ValidasiController@register_id');
+Route::get('/registertelp/{id}/{News}', 'ValidasiController@register_id');
+Route::get('/registertelp//{News}', 'ValidasiController@register_null');
+Route::get('/registeremail/{id}/{News}', 'ValidasiController@registeremail_id');
+Route::get('/registeremail', 'ValidasiController@registeremail');
+
 Route::get('/forgotpassword', 'ValidasiController@forgotpassword');
 
 Route::post('/logintelp','ValidasiController@postlogin')->name('password.request');

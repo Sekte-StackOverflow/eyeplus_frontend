@@ -32,13 +32,47 @@ class ValidasiController extends Controller
     }
 
 	public function register(){
+        if (!Auth::guest()){
+            return redirect()->route('live');
+        }
         $ket = "";
-		return view('register',['ket' => $ket]);
+        $News = "1";
+		return view('register',['ket' => $ket, 'News'=>$News]);
     }
 
-    public function register_id($id){
+    public function register_id($id, $New){
+        if (!Auth::guest()){
+            return redirect()->route('live');
+        }        
         $ket = "0".$id;
-        return view('register', ['ket' => $ket]);
+        $News = $New;
+        return view('register', ['ket' => $ket, 'News'=>$News]);
+    }
+
+    public function register_null($New){
+        if (!Auth::guest()){
+            return redirect()->route('live');
+        }        
+        $ket = "";
+        $News = $New;
+        return view('register', ['ket' => $ket, 'News'=>$News]);
+    }
+
+    public function registeremail(){
+        if (!Auth::guest()){
+            return redirect()->route('live');
+        }
+        $ket = "";
+        $News = "1";
+        return view('registeremail',['ket' => $ket, 'News'=>$News]);
+    }
+    public function registeremail_id($id, $New){
+        if (!Auth::guest()){
+            return redirect()->route('live');
+        }
+        $ket = $id;
+        $News = $New;
+        return view('registeremail', ['ket' => $ket, 'News'=>$News]);
     }
 
 	public function postregister(Request $request){
@@ -50,11 +84,13 @@ class ValidasiController extends Controller
         ]);
     	User::create ([
             'name' => "none",
-            'status' => "Active",
-            'tipe_register' => "telepon",
+            'status' => "1",
+            'tipe_register' => "Phone",
+            'profile' => " no_image.jpg",
             'email' => $request->email,
             'password' =>Hash::make($request->password),
             'tipe_user' => "Website",
+            'News' => $request->News,
             'email_verified_at' => new DateTime(),
         ]);
 

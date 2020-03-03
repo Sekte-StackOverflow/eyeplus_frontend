@@ -3,7 +3,8 @@
 @section('heading')
 <div class="video-responsive">
   <div class="embed-responsive embed-responsive-16by9">
-    <video id="videojs-hls-quality-selector-player" class="video-js vjs-default-skin embed-responsive-item vjs-nofull" poster="{{ asset('image/banner/images.jpg' ) }}" 
+    @foreach($stream as $s)
+    <video id="videojs-hls-quality-selector-player" class="video-js vjs-default-skin embed-responsive-item vjs-nofull poster" poster="https://eyeplus.co.id/admin-eyeplus/media/img/{{ $s->poster }}" 
     style="position: absolute;
     top: 0;
     left: 0;
@@ -12,7 +13,6 @@
     object-fit:fill;
     border:0" controls autoplay loop playsinline >
 
-@foreach($stream as $s)
   <source type="application/x-mpegURL" src="{{ $s->link }}">
 @endforeach 
   </div>
@@ -37,31 +37,30 @@
 @endsection
 
 @section('banner')
+@if($count >0)
   <div class="row " >
     <div id="myCarousel" class="carousel slide" data-ride="carousel" >
       <ol class="carousel-indicators">
-        @for ($i = 0 ; $i <= $total ; $i++)
-        <li data-target="#myCarousel" data-slide-to="$i"></li>
+        @for ($i = 0 ; $i <= $count-1 ; $i++)
+          @if($i === 0)
+            <li data-target="#myCarousel" data-slide-to="{{$i}}" class="active"></li>
+          @else
+            <li data-target="#myCarousel" data-slide-to="{{$i}}"></li>
+          @endif
         @endfor
       </ol>
-
       <!-- Wrapper for slides -->
       <div class="carousel-inner img-center " role="listbox" >
         <div class="item active" >
-          <img src="{{ asset('image/banner/1.jpg') }}" alt="Image" style="border-radius: 7px"> 
+          <img src="https://eyeplus.co.id/admin-eyeplus/media/img/{{$bannerfirst->web}}" alt="Image" style="border-radius: 7px"> 
         </div>
-        <div class="item ">
-          <img src="{{ asset('image/banner/2.jpg') }}" alt="Image" style="border-radius: 7px"> 
-        </div>
-        <div class="item ">
-          <img src="{{ asset('image/banner/3.jpg') }}" alt="Image" style="border-radius: 7px"> 
-        </div>
-
-        <!-- @for ($i = 0 ; $i <= $total-1; $i++)
-        <div class="item" >
-          <img src="{{ asset('image/baner/4.jpg') }}" alt="Image">     
-        </div>
-        @endfor -->
+        @if($count > 1)
+          @foreach($bannernext as $b)
+            <div class="item ">
+              <img src="https://eyeplus.co.id/admin-eyeplus/media/img/{{$b->web}}" alt="Image" style="border-radius: 7px"> 
+            </div>
+          @endforeach
+        @endif
       </div>
 
       <!-- Left and right controls -->
@@ -74,7 +73,8 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-</div><br><br>
+</div><br>
+@endif
 @endsection
 
 
@@ -93,23 +93,23 @@
               <input type="hidden" name="iduser" value="{{ Auth::user()->id }}">
               <input type="hidden" name="activity" value="{{$v->name}}">
               <input type="hidden" name="id" value="{{$v->id}}">
-              <!-- <a href="live/{{ $v->id }}" type="submit"> -->
+              <a href="live/{{ $v->id }}" type="submit">
               <button type="submit" id="submit" >
                 <img class="article-img " src="https://eyeplus.co.id/admin-eyeplus/media/img/{{$v->thumbnail}}" alt=" " />
                 <h4 class="article-title">{{$v->name}}</h4>
-                <div class="watching">{{$v->watching_w}} Watching</div>
+                <div class="watching">{{$v->watching_w + $v->watching_a}} Watching</div>
                 <font class="live">{{$v->tipevideo}}</font>
               </button>
-              <!-- </a> -->
+              </a>
             @else
             <input type="hidden" name="id" value="{{$v->id}}">
             <button type="submit" id="submit" >
-              <!-- <a href="live/{{ $v->id }}"> -->
+              <a href="live/{{ $v->id }}">
               <img class="article-img " src="https://eyeplus.co.id/admin-eyeplus/media/img/{{$v->thumbnail}}" alt=" " />
               <h4 class="article-title">{{$v->name}}</h4>
-              <div class="watching">{{$v->watching_w}} Watching</div>
+              <div class="watching">{{$v->watching_w + $v->watching_a}} Watching</div>
               <font class="live">{{$v->tipevideo}} </font>
-            <!-- </a> -->
+            </a>
             </button>
             @endif
           </form>
@@ -121,23 +121,23 @@
               <input type="hidden" name="iduser" value="{{ Auth::user()->id }}">
               <input type="hidden" name="activity" value="{{$v->name}}">
               <input type="hidden" name="id" value="{{$v->id}}">
-              <!-- <a href="live/{{ $v->id }}" type="submit"> -->
+              <a href="subscribe/{{ $v->id }}" type="submit">
               <button type="submit" id="submit" >
                 <img class="article-img " src="https://eyeplus.co.id/admin-eyeplus/media/img/{{$v->thumbnail}}" alt=" " />
                 <h4 class="article-title">{{$v->name}}</h4>
-                <div class="watching">{{$v->watching_w}} Watching</div>
+                <div class="watching">{{$v->watching_w + $v->watching_a}} Watching</div>
                 <font class="live">{{$v->tipevideo}}</font>
               </button>
-              <!-- </a> -->
+              </a>
             @else
             <input type="hidden" name="id" value="{{$v->id}}">
             <button type="submit" id="submit" >
-              <!-- <a href="subscribe/{{ $v->id }}"> -->
+              <a href="subscribe/{{ $v->id }}">
               <img class="article-img " src="https://eyeplus.co.id/admin-eyeplus/media/img/{{$v->thumbnail}}" alt=" " />
               <h4 class="article-title">{{$v->name}}</h4>
-              <div class="watching">{{$v->watching_w}} Watching</div>
+              <div class="watching">{{$v->watching_w + $v->watching_a}} Watching</div>
               <font class="live">{{$v->tipevideo}} </font>
-            <!-- </a> -->
+            </a>
             </button>
             @endif
           </form>
@@ -241,15 +241,15 @@
 
 #ex3::-webkit-scrollbar{
 width:11px;
-background-color:white;
+background-color:#f8f8f8;
 } 
 #ex3::-webkit-scrollbar-thumb{
 background-color:#ebebeb;
 border-radius:10px;
 }
 #ex3::-webkit-scrollbar-thumb:hover{
-background-color:#c4c2c2;
-border:2px solid #8c8b8b;
+background-color:#f2f0f0;
+border:2px solid #c4c2c2;
 }
 #ex3::-webkit-scrollbar-thumb:active{
 background-color: #636363;
@@ -298,7 +298,7 @@ button {
   font-size: 10px;
   text-align: left;
   padding: 5px 5px 5px 0px; 
-  background-color: white;
+  background-color: #f8f8f8;
 }
 
 .live {
@@ -316,6 +316,15 @@ button {
 .vjs-nofull .vjs-fullscreen-control {
     display:none;
 }
-
+/*    .poster{
+    height: 100%;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    }*/
+.vjs-poster{
+background-size: 100%!important;
+}
 </style>
 @endsection

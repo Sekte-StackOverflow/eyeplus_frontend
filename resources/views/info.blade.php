@@ -7,19 +7,24 @@
   <h3><b>Daftar</b></h3>
   <div class="input-group">
     <span class="input-group-addon">ID +62</span>
-    <input type="number" class="form-control" placeholder="Masukkan nomer ponsel" id="phone" onkeyup="s()" maxlength="15" oninput="this.value=this.value.slice(0,this.maxLength)">
+    <input type="text" class="form-control" placeholder="Masukkan nomer ponsel" id="phone" onkeyup="s()" maxlength="13" minlength="11" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
   </div><br>
-
+  
   <div class="row">
-    <div class="col-sm-8" style="color: #cfc9c8">
+    <div class="col-sm-8" style="color: #808080">
       Saya ingin menerima pemberitahuan dari eyePLUS tentang promosi dan informasi eksklusif lainnya
     </div>
+    
     <div class="col-sm-4">
-      <label class="switch btn pull-right">
-        <input type="checkbox" checked>
+      <label class="switch btn pull-right" id="boxes">
+        <input type="checkbox" value="1" data-exval="1" checked>
         <span class="slider round"></span>
       </label>
     </div>
+ 
+<!-- <p id="chkdemo" style="color: yellow;font-size:20px;">The checkbox is checked!!</p> -->
+ <div id="result" hidden>1</div>
+
   </div><br>
   <div>
     <a href="javascript:document.location.href=link();"><input type="submit" value="Berikutnya" class="btn btn-block info-button" id="berikutnya" disabled></a>
@@ -57,10 +62,10 @@
             <table style="margin: 5px" >
               <div class="row account" >
                 <div class="col-sm-4 text-center">
-                  @if(  !Auth::user()->profile == null)
-                  <img class="barcode profil" id="gambar_nodin" style="width: 150px; height: 150px; border-radius: 50%; border: 0.5px solid blue;" src="/profil/{{ Auth::user()->profile}}">
+                  @if( Auth::user()->profile == null || Auth::user()->profile == "no_image.jpg")
+                  <img class="barcode profil" id="fotoprofil" style="width: 150px; height: 150px; border-radius: 50%; border: 0.5px solid blue;" src="{{ URL::to('/image/avatar.png') }}">
                   @else
-                  <img class="barcode profil" id="gambar_nodin" style="width: 150px; height: 150px; border-radius: 50%; border: 0.5px solid blue;" src="{{ URL::to('/image/avatar.png') }}">
+                  <img class="barcode profil" id="fotoprofil" style="width: 150px; height: 150px; border-radius: 50%; border: 0.5px solid blue;" src="/profil/{{ Auth::user()->profile}}">
                   @endif
                   <b>{{ Auth::user()->email }}</b>
                 </div><br>
@@ -117,8 +122,8 @@
 <!-- </form> -->
 
   </div><br>
-  <div style="color: #cfc9c8">Dengan mandaftar saya setuju kepada syarat dan ketentuan eyePLUS.
-    <a data-toggle="modal" data-target="#myModal">Syarat dan ketentuan yang berlaku dan kebijakan privasi</a>
+  <div style="color: #808080">Dengan mandaftar saya setuju kepada syarat dan ketentuan eyePLUS.
+    <a data-toggle="modal" data-target="#myModal" style="text-decoration: underline; color: #808080">Syarat dan ketentuan yang berlaku dan kebijakan privasi</a>
   </div>
 
 </div>
@@ -148,11 +153,12 @@ function disabledtelp(){
 function link(){
   var i=document.getElementById("email");
   var p = document.getElementById("phone");
-  var ket = "/registertelp/" + p.value;
+  var result = document.getElementById("result");
+  var ket = "/registertelp/"+p.value+"/" + result.innerHTML;
   if(i.value===""){
     return ket;
   }else{
-    return "/register";
+    return "/registeremail/"+i.value+"/" + result.innerHTML;
   }
 }
 
@@ -161,14 +167,35 @@ function bacaGambar(input) {
       var reader = new FileReader();
     
       reader.onload = function (e) {
-        $('#gambar_nodin').attr('src', e.target.result);
+        $('#fotoprofil').attr('src', e.target.result);
       }
       reader.readAsDataURL(input.files[0]);
       }
     }
-      $("#preview_gambar").change(function(){
+  $("#preview_gambar").change(function(){
       bacaGambar(this);
+  });
+
+  // checkbox
+  $(document).ready(function() {
+    $('#demochecked').click(function() {
+      $("#chkdemo").toggle(this.checked);
+    }); 
+  });
+
+  $(document).ready(function(){
+//Set a handler to catch clicking the check box
+  $("#boxes input[type='checkbox']").click(function(){
+    var total=0;
+    //lOOP THROUGH CHECKED
+    $("#boxes input[type='checkbox']:checked").each(function(){
+         //Update total
+          total += parseInt($(this).data("exval"),10);
     });
+    $("#result").text(total);
+  });
+  
+});
 </script>
 
 
@@ -182,7 +209,7 @@ function bacaGambar(input) {
       </div>
       <div class="modal-body">
         <textarea id="ex3">
-          {{$appsetting[0]->sk}}
+          {{$appsetting->sk}}
         </textarea>
       </div>
       <div class="modal-footer" hidden="div">
@@ -192,6 +219,7 @@ function bacaGambar(input) {
 
   </div>
 </div>
+
 
 
 
@@ -248,6 +276,11 @@ border:1px solid #333333;
   }
 
   @media screen and (max-width: 1000px){
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-gap: 10px;
+    }
     .modal-sm{
       top: 15%; width: 90%;
       margin-left: auto;
@@ -265,6 +298,11 @@ border:1px solid #333333;
     } 
 
   @media screen and (max-width: 600px) {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 10px;
+  }
     .padding{
       padding: 5px 10px 10px 10px;
     }
@@ -287,6 +325,23 @@ border:1px solid #333333;
       padding-left: 50px; padding-right: 50px;
     }
   }
+
+@media screen and (max-width: 500px) {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-gap: 10px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-gap: 10px;
+  }
+
+}
   </style>
 
 @endsection

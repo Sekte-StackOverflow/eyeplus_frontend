@@ -1,35 +1,49 @@
 @extends('master')
 @section('heading')
   <!-- <img src="https://mmc.tirto.id/image/otf/500x0/2018/12/10/shopee-blackpink-_ratio-16x9.jpg" style="width:100%"  alt="Image" class="img-rounded"> -->
+@if($count > 0)
 <div class="video-responsive">
   <div class="embed-responsive embed-responsive-16by9">
 
    <div class="row " >
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
-        @for ($i = 0 ; $i <= $total ; $i++)
-        <li data-target="#myCarousel" data-slide-to="$i"></li>
+        @for ($i = 0 ; $i <= $count-1 ; $i++)
+          @if($i === 0)
+            <li data-target="#myCarousel" data-slide-to="{{$i}}" class="active"></li>
+          @else
+            <li data-target="#myCarousel" data-slide-to="{{$i}}"></li>
+          @endif
         @endfor
       </ol>
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner img-center " role="listbox">
         <div class="item active">
-          <img src="https://dxclnrbvyw82b.cloudfront.net/images/di/upload/20191016/1f1822eb-1ca4-4502-a57b-333683d38961/88/billbord-page-ec-tv-home-shopping-best-seller.jpg" alt="Image"  style="width:100%"> 
+          <!-- https://dxclnrbvyw82b.cloudfront.net/images/di/upload/20191016/1f1822eb-1ca4-4502-a57b-333683d38961/88/billbord-page-ec-tv-home-shopping-best-seller.jpg
+          {{ URL::to('/image/banner/'.$bannerfirst->web) }}
+           -->
+           <a href="{{$bannerfirst->link}}" target="_blank">
+            <img src="https://eyeplus.co.id/admin-eyeplus/media/img/{{$bannerfirst->web}}" alt="Image"  style="width:100%"> 
+          </a>
         </div>
-        @for ($i = 0 ; $i <= $total-1; $i++)
-        <div class="item" >
-          <img src="https://dxclnrbvyw82b.cloudfront.net/images/di/upload/20191016/1f1822eb-1ca4-4502-a57b-333683d38961/88/billbord-page-ec-tv-home-shopping-best-seller.jpg" alt="Image"  style="width:100%" >     
-        </div>
-        @endfor
+        @if($count > 1)
+          @foreach($bannernext as $b)
+          <div class="item" >
+            <a href="{{$b->link}}" target="_blank">
+              <img src="https://eyeplus.co.id/admin-eyeplus/media/img/{{$b->web}}" alt="Image"  style="width:100%" >     
+            </a>
+          </div>
+          @endforeach
+        @endif
       </div>
 
       <!-- Left and right controls -->
-      <a class="left carousel-control padding" href="#myCarousel" role="button" data-slide="prev" style="background: transparent;>
+      <a class="left carousel-control padding" href="#myCarousel" role="button" data-slide="prev" style="background: transparent">
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
-      <a class="right carousel-control padding" href="#myCarousel" role="button" data-slide="next" style="background: transparent;>
+      <a class="right carousel-control padding" href="#myCarousel" role="button" data-slide="next" style="background: transparent">
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
@@ -37,6 +51,7 @@
 </div>
   </div>
 </div>
+@endif
 @endsection
  
 
@@ -76,9 +91,11 @@
           @endif
           <input type="hidden" name="id" value="{{$p->id}}">
           <input type="hidden" name="activity" value="{{$p->nama}}">
+          <a href="shopping/{{ $p->id }}">
           <font class="harga-asli1"><s> @currency($p->price) </s><font class="diskon1"><b>{{ $p->discount }}</b>% OFF </font></font>
           <font class="harga1"> @currency( $p->finalprice)</font>
           <button type="submit" id="submit" class="none"><img class="article-img" src="https://eyeplus.co.id/admin-eyeplus/media/img/{{$p->thumnail}}" alt=" " /></button>
+          </a>
           <button type="button" class="shop-button" data-toggle="modal" data-target="#myModal" hidden>BELI</button>
 
           </form>
@@ -206,8 +223,8 @@
 
 @media screen and (min-width: 600px){
 .carousel-inner img {
-      max-height: 370px;
-      min-height: 370px;
+      max-height: 395px;
+      min-height: 395px;
       width: 100%;
       padding-left: 10px;
       padding-right: 10px;
@@ -220,15 +237,15 @@
 
 #ex3::-webkit-scrollbar{
 width:11px;
-background-color:white;
+background-color:#f8f8f8;
 } 
 #ex3::-webkit-scrollbar-thumb{
 background-color:#ebebeb;
 border-radius:10px;
 }
 #ex3::-webkit-scrollbar-thumb:hover{
-background-color:#c4c2c2;
-border:2px solid #8c8b8b;
+background-color:#f2f0f0;
+border:2px solid #c4c2c2;
 }
 #ex3::-webkit-scrollbar-thumb:active{
 background-color: #636363;

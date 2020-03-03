@@ -19,7 +19,7 @@
       </div>
       <div >
         <textarea id="ex3">
-          {{$appsetting[0]->sk}}
+          {{$appsetting->sk}}
         </textarea>
       </div>
       <div class="modal-footer" hidden="div">

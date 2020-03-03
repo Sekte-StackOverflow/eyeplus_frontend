@@ -101,7 +101,7 @@
 
             <div class="inner-addon right-addon">
                 <i class="glyphicon glyphicon-phone"></i>
-                <input type="number" class="form-control  {{$errors->has('email') ? 'is-invalid' : ''}}" placeholder="Phone" name="email"  value="{{$ket}}" oninput="this.value=this.value.slice(0,this.maxLength)" maxlength="15" minlength="8" />
+                <input type="text" class="form-control  {{$errors->has('email') ? 'is-invalid' : ''}}" placeholder="Phone" name="email"  value="{{$ket}}" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="15" minlength="8" />
                 @if($errors->has('email'))
                     <div class="invalid-feedback text-danger">
                         The phone has already been taken.
@@ -109,9 +109,12 @@
                 @endif
             </div><br>
 
+            <input name="News" value="{{$News}}" hidden>
+ 
+
             <div class="inner-addon right-addon">
                 <i class="glyphicon glyphicon-lock"></i>
-                <input type="password" class="form-control {{$errors->has('password') ? 'is-invalid' : ''}}"" placeholder="Password" name="password" />
+                <input type="password" class="form-control {{$errors->has('password') ? 'is-invalid' : ''}}" placeholder="Password" name="password" />
                 @if($errors->has('password'))
                     <div class="invalid-feedback text-danger">
                         {{ $errors->first('password')}}
@@ -121,7 +124,7 @@
 
             <div class="inner-addon right-addon">
                 <i class="glyphicon glyphicon-lock"></i>
-                <input type="password" class="form-control {{$errors->has('password_confirmation') ? 'is-invalid' : ''}}"" placeholder="Password Confirmation" name="password_confirmation" />
+                <input type="password" class="form-control {{$errors->has('password_confirmation') ? 'is-invalid' : ''}}" placeholder="Password Confirmation" name="password_confirmation" />
                 @if($errors->has('password_confirmation'))
                     <div class="invalid-feedback text-danger">
                         {{ $errors->first('password_confirmation')}}

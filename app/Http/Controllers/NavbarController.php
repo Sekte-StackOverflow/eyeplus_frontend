@@ -9,16 +9,26 @@ use Auth;
 
 class NavbarController extends Controller
 {
-
-	   //  public function __construct()
-    // {
-    //     $this->middleware(['auth'=>'verified']);
-    // }
     
     public function live(){
-    	$total = 2;
-    	$video = DB::table('video')->where('status', 'active')->get();
-    	return view('live', ['total' => $total, 'video'=>$video]);
+    	//poster video
+    	$poster = DB::table('video')->where('status', 'active')->orderBy('order_rec', 'ASC')->first();
+    	//video
+    	$video = DB::table('video')->where('status', 'active')->orderBy('order_rec', 'ASC')->get();
+    	// banner
+    	$bannerfirst = DB::table('banner')->where('tipe', 'Channel')->first();
+		$count = DB::table('banner')->where('tipe', 'Channel')->count();
+		$bannernext = DB::table('banner')->where('tipe', 'Channel')->skip(1)->take($count)->get();
+		//banner-mini
+		$bannerminifirst = DB::table('banner')->where('tipe', 'Produk-mini')->first();
+		$countmini = DB::table('banner')->where('tipe', 'Produk-mini')->count();
+		$bannermininext = DB::table('banner')->where('tipe', 'Produk-mini')->skip(1)->take($countmini)->get();
+		// popup
+		$popup = DB::table('banner')->where('tipe', 'Popup')->first();
+		//appsetting
+		$appsetting = DB::table('appsetting')->first();
+
+    	return view('live', ['video'=>$video, 'bannerfirst'=>$bannerfirst, 'bannernext'=>$bannernext, 'count'=>$count, 'appsetting'=>$appsetting, 'popup'=>$popup, 'poster'=>$poster, 'bannerminifirst'=>$bannerminifirst, 'bannermininext'=>$bannermininext, 'countmini'=>$countmini]);
 	}
 
 	public function streamingpost(Request $request){
@@ -27,7 +37,7 @@ class NavbarController extends Controller
 		if (!$activity -> isEmpty()) {
 			foreach ($activity as $a) {
 				$totalview = $a->fvw;
-				DB::table('activity')->where('activity',$request->activity)->update([
+				DB::table('activity')->where('activity',$request->activity)->where('iduser', $request->iduser)->update([
 					'fvw' => $totalview+1,
 					'update_tb' => new DateTime()
 				]);
@@ -56,7 +66,7 @@ class NavbarController extends Controller
 		if (!$activity -> isEmpty()) {
 			foreach ($activity as $a) {
 				$totalview = $a->fvw;
-				DB::table('activity')->where('activity',$request->activity)->update([
+				DB::table('activity')->where('activity',$request->activity)->where('iduser', $request->iduser)->update([
 					'fvw' => $totalview+1,
 					'update_tb' => new DateTime()
 				]);
@@ -86,7 +96,7 @@ class NavbarController extends Controller
 		if (!$activity -> isEmpty()) {
 			foreach ($activity as $a) {
 				$totalview = $a->pvw;
-				DB::table('activity')->where('activity',$request->activity)->update([
+				DB::table('activity')->where('activity',$request->activity)->where('iduser', $request->iduser)->update([
 					'pvw' => $totalview+1,
 					'update_tb' => new DateTime()
 				]);
@@ -112,61 +122,86 @@ class NavbarController extends Controller
 		return redirect('/shopping/'.$request->id);
 	}
 	public function modal(){
-		$appsetting = DB::table('appsetting')->get();
+		//appsetting
+		$appsetting = DB::table('appsetting')->first();
 		return view('modal', ['appsetting' => $appsetting]);
 	}
 
 	public function streaming($id){
-		$total = 2;
-    	$video = DB::table('video')->where('status', 'active')->get();
+    	$video = DB::table('video')->where('status', 'active')->orderBy('order_rec', 'ASC')->get();
 		$stream = DB::table('video')->where('id',$id)->get();
+		//banner
+		$bannerfirst = DB::table('banner')->where('tipe', 'Channel')->first();
+		$count = DB::table('banner')->where('tipe', 'Channel')->count();
+		$bannernext = DB::table('banner')->where('tipe', 'Channel')->skip(1)->take($count)->get();
+		//banner-mini
+		$bannerminifirst = DB::table('banner')->where('tipe', 'Produk-mini')->first();
+		$countmini = DB::table('banner')->where('tipe', 'Produk-mini')->count();
+		$bannermininext = DB::table('banner')->where('tipe', 'Produk-mini')->skip(1)->take($countmini)->get();
+		//appsetting
+		$appsetting = DB::table('appsetting')->first();
 
-		return view('streaming', ['total' => $total
-			, 'stream' => $stream, 'video'=>$video]);
+		return view('streaming', ['stream' => $stream, 'video'=>$video, 'bannerfirst'=>$bannerfirst, 'bannernext'=>$bannernext, 'count'=>$count,'appsetting'=>$appsetting, 'bannerminifirst'=>$bannerminifirst, 'bannermininext'=>$bannermininext, 'countmini'=>$countmini]);
 	}
 
 	public function subscribe($id){
-		$total = 2;
-    	$video = DB::table('video')->where('status', 'active')->get();
+    	$video = DB::table('video')->where('status', 'active')->orderBy('order_rec', 'ASC')->get();
 		$stream = DB::table('video')->where('id',$id)->get();
+		// banner
+		$bannerfirst = DB::table('banner')->where('tipe', 'Channel')->first();
+		$count = DB::table('banner')->where('tipe', 'Channel')->count();
+		$bannernext = DB::table('banner')->where('tipe', 'Channel')->skip(1)->take($count)->get();
+		//banner-mini
+		$bannerminifirst = DB::table('banner')->where('tipe', 'Produk-mini')->first();
+		$countmini = DB::table('banner')->where('tipe', 'Produk-mini')->count();
+		$bannermininext = DB::table('banner')->where('tipe', 'Produk-mini')->skip(1)->take($countmini)->get();
+		//appsetting
+		$appsetting = DB::table('appsetting')->first();
 
-		return view('subscribe', ['total' => $total, 'stream' => $stream, 'video'=>$video]);
+		return view('subscribe', ['stream' => $stream, 'video'=>$video, 'bannerfirst'=>$bannerfirst, 'bannernext'=>$bannernext, 'count'=>$count,'appsetting'=>$appsetting, 'bannerminifirst'=>$bannerminifirst, 'bannermininext'=>$bannermininext, 'countmini'=>$countmini]);
 	}
  
 	public function shopping(){
-		$produk = DB::table('produk')->where('status', 'publish')->get();
-		$total = 2;
+		//banner-mini
+		$bannerminifirst = DB::table('banner')->where('tipe', 'Produk-mini')->first();
+		$countmini = DB::table('banner')->where('tipe', 'Produk-mini')->count();
+		$bannermininext = DB::table('banner')->where('tipe', 'Produk-mini')->skip(1)->take($countmini)->get();
+		//banner
+		$produk = DB::table('produk')->where('status', 'publish')->orderBy('order_rec', 'ASC')->get();
+		$bannerfirst = DB::table('banner')->where('tipe', 'Produk')->first();
+		$count = DB::table('banner')->where('tipe', 'Produk')->count();
+		$bannernext = DB::table('banner')->where('tipe', 'Produk')->skip(1)->take($count)->get();
+		// return $count;
+		//appsetting
+		$appsetting = DB::table('appsetting')->first();
 
-		$array = [
-			"id"=>[
-				"1", "2", "3", "4", "5"
-			],
-		  "product" => [
-		      "iwater.png", "Kasur-web.png", "thumbnail.jpg", "colocasia.png", "thumbnail1.jpg"
-		  ],
-		  "harga" => [
-		      "1210000", "1110000", "180000", "180000", "1480000"
-		  ],
-		  "hargaasli" => [
-		    "1480000", "1480000", "9990000", "898000", "2500000"
-		  ],
-		  "diskon" => [
-		    "40%", "20%", "35%", "35%", "45%"
-		  ]
-		];
-
-		return view('shop', ['total' => $total, 'array'=>$array, 'produk'=>$produk]);
+		return view('shop', ['produk'=>$produk, 'bannerfirst' =>$bannerfirst, 'bannernext'=>$bannernext, 'count'=>$count, 'appsetting'=>$appsetting, 'bannerminifirst'=>$bannerminifirst, 'bannermininext'=>$bannermininext, 'countmini'=>$countmini]);
 	}
  
 	public function sosmed(){
-		$link = DB::table('sosme')->get();
+		$link = DB::table('sosme')->where('id', 1)->get();
+		$link2 = DB::table('sosme')->where('id', 2)->get();
+		$link3 = DB::table('sosme')->where('id', 3)->get();
+		// banner
 		$banner = DB::table('banner')->where('tipe','Sosmed')->first();
-		return view('sosmed', ['link'=>$link, 'banner'=>$banner]);
+		//banner-mini
+		$bannerminifirst = DB::table('banner')->where('tipe', 'Produk-mini')->first();
+		$countmini = DB::table('banner')->where('tipe', 'Produk-mini')->count();
+		$bannermininext = DB::table('banner')->where('tipe', 'Produk-mini')->skip(1)->take($countmini)->get();
+		//appsetting
+		$appsetting = DB::table('appsetting')->first();
+
+		return view('sosmed', ['link'=>$link, 'banner'=>$banner, 'appsetting'=>$appsetting, 'link2'=>$link2, 'link3'=>$link3, 'bannerminifirst'=>$bannerminifirst, 'bannermininext'=>$bannermininext, 'countmini'=>$countmini]);
     }
     
     public function info(){
-    	$appsetting = DB::table('appsetting')->get();
-		return view('info', ['appsetting' => $appsetting]);
+		$appsetting = DB::table('appsetting')->first();
+		//banner-mini
+		$bannerminifirst = DB::table('banner')->where('tipe', 'Produk-mini')->first();
+		$countmini = DB::table('banner')->where('tipe', 'Produk-mini')->count();
+		$bannermininext = DB::table('banner')->where('tipe', 'Produk-mini')->skip(1)->take($countmini)->get();
+
+		return view('info', ['appsetting' => $appsetting, 'bannerminifirst'=>$bannerminifirst, 'bannermininext'=>$bannermininext, 'countmini'=>$countmini]);
 	}
 
 	public function info_upload(Request $request){
@@ -194,8 +229,13 @@ class NavbarController extends Controller
 			'name' => $request->name,
 		]);
 		}
-		$appsetting = DB::table('appsetting')->get();
-		return view('info', ['appsetting' => $appsetting]);
+		$appsetting = DB::table('appsetting')->first();
+		//banner-mini
+		$bannerminifirst = DB::table('banner')->where('tipe', 'Produk-mini')->first();
+		$countmini = DB::table('banner')->where('tipe', 'Produk-mini')->count();
+		$bannermininext = DB::table('banner')->where('tipe', 'Produk-mini')->skip(1)->take($countmini)->get();
+
+		return view('info', ['appsetting' => $appsetting, 'bannerminifirst'=>$bannerminifirst, 'bannermininext'=>$bannermininext, 'countmini'=>$countmini]);
 	}
 
 	public function barang($id){
@@ -203,6 +243,9 @@ class NavbarController extends Controller
 		$produk = DB::table('produk')->where('id',$id)->get();
 		$template = DB::table('template')->where('idproduk',$id)->get();
 		// $template = "1";
+		//appsetting
+		$appsetting = DB::table('appsetting')->first();
+
 		$array = [
 			"id"=>[
 				"1", "2", "3", "4", "5"
@@ -223,11 +266,78 @@ class NavbarController extends Controller
 		  		"eUZe0VNYSVM", "kB4UvComcEE", "4VmFR3v64K0", "0QwMbdhzQzw", "0nuvRZ5rU40"
 		  	]
 		];
-		return view('barang', ['array'=> $array, 'idbarang'=>$idbarang, 'produk'=>$produk, 'template'=>$template]);
+		//banner-mini
+		$bannerminifirst = DB::table('banner')->where('tipe', 'Produk-mini')->first();
+		$countmini = DB::table('banner')->where('tipe', 'Produk-mini')->count();
+		$bannermininext = DB::table('banner')->where('tipe', 'Produk-mini')->skip(1)->take($countmini)->get();
+
+		return view('barang', ['array'=> $array, 'idbarang'=>$idbarang, 'produk'=>$produk, 'template'=>$template, 'appsetting'=>$appsetting, 'bannerminifirst'=>$bannerminifirst, 'bannermininext'=>$bannermininext, 'countmini'=>$countmini]);
 	}
 
 	public function test(){
 		return view('test');
+	}
+
+	public function streamingputAPI(Request $request){
+	if ($request->iduser != null){
+		$activity = DB::table('activity')->where('activity', $request->activity)->where('iduser', $request->iduser)->get();
+		if (!$activity -> isEmpty()) {
+			foreach ($activity as $a) {
+				$totalview = $a->fva;
+				DB::table('activity')->where('activity',$request->activity)->where('iduser', $request->iduser)->update([
+					'fva' => $totalview+1,
+					'update_tb' => new DateTime()
+				]);
+			}
+			
+		}else{
+			DB::table('activity')->insert([
+			'iduser' => $request->iduser,
+			'activity' => $request->activity,
+			'fva' => 1,
+			'create_tb' => new DateTime(),
+			]);
+		}
+	}
+		$video = DB::table('video')->where('id', $request->id)->get();
+		foreach ($video as $v) {
+			$totalview = $v->watching_a;
+			DB::table('video')->where('id', $request->id)->update([
+				'watching_a' => $totalview+1
+			]);
+		}
+		return response()->json(['response' => array('status' => '200', 'message' => 'success')], 200);
+	}
+
+	public function produkputAPI(Request $request){
+	if ($request->iduser != null){
+		$activity = DB::table('activity')->where('activity', $request->activity)->where('iduser', $request->iduser)->get();
+		if (!$activity -> isEmpty()) {
+			foreach ($activity as $a) {
+				$totalview = $a->pva;
+				DB::table('activity')->where('activity',$request->activity)->where('iduser', $request->iduser)->update([
+					'pva' => $totalview+1,
+					'update_tb' => new DateTime()
+				]);
+			}
+			
+		}else{
+			DB::table('activity')->insert([
+			'iduser' => $request->iduser,
+			'activity' => $request->activity,
+			'pva' => 1,
+			'create_tb' => new DateTime(),
+			]);
+		}
+	}
+		$produk = DB::table('produk')->where('id', $request->id)->get();
+		foreach ($produk as $v) {
+			$totalview = $v->watching_a;
+			DB::table('produk')->where('id', $request->id)->update([
+				'watching_a' => $totalview+1
+			]);
+		}
+		return response()->json(['response' => array('status' => '200', 'message' => 'success')], 200);
 	}
 }
 
